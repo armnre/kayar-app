@@ -9,6 +9,7 @@ import type { default as _AdminMemberBulkEp } from '../src/api/adminMemberBulk';
 import type { default as _AdminMemberCreateEp } from '../src/api/adminMemberCreate';
 import type { default as _AdminMembersEp } from '../src/api/adminMembers';
 import type { default as _AdminSettingsEp } from '../src/api/adminSettings';
+import type { default as _AppNotificationsEp } from '../src/api/appNotifications';
 import type { default as _AuthChangePasswordEp } from '../src/api/authChangePassword';
 import type { default as _AuthLoginEp } from '../src/api/authLogin';
 import type { default as _AuthLogoutEp } from '../src/api/authLogout';
@@ -16,6 +17,7 @@ import type { default as _AuthMeEp } from '../src/api/authMe';
 import type { default as _AuthSessionsEp } from '../src/api/authSessions';
 import type { default as _BodyyarAiEp } from '../src/api/bodyyarAi';
 import type { default as _KapooshProductsEp } from '../src/api/kapooshProducts';
+import type { default as _MorshedPodcastsEp } from '../src/api/morshedPodcasts';
 import type { default as _MorshedTracksEp } from '../src/api/morshedTracks';
 import type { default as _PublicSettingsEp } from '../src/api/publicSettings';
 
@@ -54,6 +56,11 @@ export type AdminSettingsInputType = NonNullable<_AdminSettingsCfg['inputSchema'
 export type AdminSettingsOutputType = Awaited<ReturnType<_AdminSettingsCfg['execute']>>;
 export const adminSettings = createCaller<AdminSettingsInputType, AdminSettingsOutputType>('adminSettings');
 
+type _AppNotificationsCfg = typeof _AppNotificationsEp;
+export type AppNotificationsInputType = NonNullable<_AppNotificationsCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_AppNotificationsCfg['execute']>[0]['input'];
+export type AppNotificationsOutputType = Awaited<ReturnType<_AppNotificationsCfg['execute']>>;
+export const appNotifications = createCaller<AppNotificationsInputType, AppNotificationsOutputType>('appNotifications');
+
 type _AuthChangePasswordCfg = typeof _AuthChangePasswordEp;
 export type AuthChangePasswordInputType = NonNullable<_AuthChangePasswordCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_AuthChangePasswordCfg['execute']>[0]['input'];
 export type AuthChangePasswordOutputType = Awaited<ReturnType<_AuthChangePasswordCfg['execute']>>;
@@ -89,6 +96,11 @@ export type KapooshProductsInputType = NonNullable<_KapooshProductsCfg['inputSch
 export type KapooshProductsOutputType = Awaited<ReturnType<_KapooshProductsCfg['execute']>>;
 export const kapooshProducts = createCaller<KapooshProductsInputType, KapooshProductsOutputType>('kapooshProducts');
 
+type _MorshedPodcastsCfg = typeof _MorshedPodcastsEp;
+export type MorshedPodcastsInputType = NonNullable<_MorshedPodcastsCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_MorshedPodcastsCfg['execute']>[0]['input'];
+export type MorshedPodcastsOutputType = Awaited<ReturnType<_MorshedPodcastsCfg['execute']>>;
+export const morshedPodcasts = createCaller<MorshedPodcastsInputType, MorshedPodcastsOutputType>('morshedPodcasts');
+
 type _MorshedTracksCfg = typeof _MorshedTracksEp;
 export type MorshedTracksInputType = NonNullable<_MorshedTracksCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_MorshedTracksCfg['execute']>[0]['input'];
 export type MorshedTracksOutputType = Awaited<ReturnType<_MorshedTracksCfg['execute']>>;
@@ -108,6 +120,7 @@ export const api = {
   adminMemberCreate,
   adminMembers,
   adminSettings,
+  appNotifications,
   authChangePassword,
   authLogin,
   authLogout,
@@ -115,6 +128,7 @@ export const api = {
   authSessions,
   bodyyarAi,
   kapooshProducts,
+  morshedPodcasts,
   morshedTracks,
   publicSettings,
 };

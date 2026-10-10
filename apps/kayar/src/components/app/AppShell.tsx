@@ -107,7 +107,7 @@ export default function AppShell() {
             <Link to="/app/notifications" className="tap grid place-items-center rounded-full" aria-label="اعلان‌ها"><Bell className="h-5 w-5" /></Link>
           </header>
           <main className="mx-auto max-w-3xl px-4 pb-[calc(var(--nav-h)+var(--safe-b)+88px)] pt-5 lg:pb-12">
-            <AnimatePresence mode="wait"><motion.div key={loc.pathname} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}><Outlet /></motion.div></AnimatePresence>
+            <motion.div key={loc.pathname} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.28, ease: 'easeOut' }}><Outlet /></motion.div>
           </main>
         </div>
       </div>
@@ -117,7 +117,7 @@ export default function AppShell() {
           {activeIdx >= 0 && !nav[activeIdx].center && <span className="absolute top-0 h-0.5 w-1/4 rounded-full bg-primary glow transition-transform duration-300" style={{ insetInlineStart: 0, transform: `translateX(${-activeIdx * 100}%)` }} />}
           {nav.map((n) => (
             <NavLink key={n.to} to={n.to} end={n.end} className={({ isActive }) => cn('flex flex-col items-center justify-center gap-0.5 text-xs font-bold', isActive ? 'text-primary' : 'text-muted-foreground')}>
-              {n.center ? <span className="-mt-7 grid h-14 w-14 place-items-center rounded-2xl bg-primary text-primary-foreground animate-pulse-glow"><n.icon className="h-6 w-6" /></span> : n.to === '/app/profile' ? <img src="https://images.fillout.com/888646/9une2mcrla/generated-images/qxsRtpeNFRPAMwH5RNmXmY/img_QzUQMloyT66b3uKy.jpg" alt="" className="h-6 w-6 rounded-full object-cover ring-1 ring-current" /> : <n.icon className="h-6 w-6" />}
+              {n.center ? <span className="-mt-7 grid h-14 w-14 place-items-center rounded-2xl bg-primary text-primary-foreground animate-pulse-glow"><n.icon className="h-6 w-6" /></span> : n.to === '/app/profile' ? <img src="https://images.fillout.com/888646/9une2mcrla/generated-images/uVzU4piLEwN9NpxrYjH8em/img_BXTFUBOC58bJT1VU.jpg" alt="" className="h-6 w-6 rounded-full object-cover ring-1 ring-current" /> : <n.icon className="h-6 w-6" />}
               {n.label}
             </NavLink>
           ))}

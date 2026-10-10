@@ -43,7 +43,7 @@ export function AppHome() {
   const stats = [{ i: Flame, v: fa(0), l: 'روز پیاپی', c: 'text-[hsl(24_100%_60%)]' }, { i: Timer, v: fa(0), l: 'دقیقه تمرین', c: 'text-primary' }, { i: Trophy, v: fa(0), l: 'تمرین کامل', c: 'text-gold' }];
   return (
     <div className="pb-6">
-      <motion.div {...up(0)} className="relative">
+      <motion.div {...up(0)} className="relative flex flex-col items-center py-4 text-center">
         <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-bold text-muted-foreground">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />{new Intl.DateTimeFormat('fa-IR', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date())}
         </span>
@@ -51,7 +51,7 @@ export function AppHome() {
         <h1 className="mt-1 text-[clamp(2rem,8vw,2.9rem)] font-black leading-[1.15] tracking-tight">
           آماده‌ی <span className="relative inline-block text-primary">یه تمرین خوب<svg viewBox="0 0 200 12" className="absolute -bottom-2 start-0 h-3 w-full text-primary/60" preserveAspectRatio="none"><path d="M2 9 Q 50 2 100 7 T 198 5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg></span>؟
         </h1>
-        <p className="mt-3 max-w-sm text-sm text-muted-foreground">هر قدم کوچیک امروز، نتیجه‌ی بزرگ فرداست. بزن بریم 💪</p>
+        <p className="mx-auto mt-4 max-w-sm text-sm text-muted-foreground">هر قدم کوچیک امروز، نتیجه‌ی بزرگ فرداست. بزن بریم 💪</p>
       </motion.div>
 
       <motion.button {...up(1)} onClick={() => { if (track) { setFullPlayer(true); return; } if (list?.length) { play(list[0], list); setFullPlayer(true); } else nav('/app/morshed'); }}
