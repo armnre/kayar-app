@@ -1,16 +1,16 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { morshedTracks } from 'zitejs/api';
-import { Headphones, Sparkles, ArrowLeft, Play, Pause, Dumbbell, Salad, Flame, Timer, Trophy, Droplets, Search, Heart, SearchX, RefreshCw } from 'lucide-react';
+import { Headphones, Sparkles, ArrowLeft, Play, Pause, Dumbbell, Salad, Flame, Timer, Trophy, Droplets } from 'lucide-react';
 import { cn } from '@project/components/lib/utils';
 import { Skeleton } from '@project/components/ui/skeleton';
-import { Glass, Cover, Waveform, StateView } from '../kit';
+import { Glass, Cover, Waveform } from '../kit';
 import { ShopSection } from '../site/Sections';
-import { fmt } from './AppShell';
+
 import { usePreview } from '../../lib/preview';
 import { useSession, errMsg } from '../../lib/session';
-import { categories, type Track } from '../../data/sample';
+import { type Track } from '../../data/sample';
 import { fa } from '../../lib/config';
 
 export const H = ({ t, s }: { t: string; s?: React.ReactNode }) => <div className="mb-3 mt-9 flex items-end justify-between"><h2 className="text-lg font-black tracking-tight">{t}</h2>{s}</div>;
@@ -43,9 +43,15 @@ export function AppHome() {
   const stats = [{ i: Flame, v: fa(0), l: 'روز پیاپی', c: 'text-[hsl(24_100%_60%)]' }, { i: Timer, v: fa(0), l: 'دقیقه تمرین', c: 'text-primary' }, { i: Trophy, v: fa(0), l: 'تمرین کامل', c: 'text-gold' }];
   return (
     <div className="pb-6">
-      <motion.div {...up(0)} className="flex items-center justify-between">
-        <div><p className="text-sm text-muted-foreground">{greet()}{first && `، ${first}`} 👋</p><h1 className="mt-0.5 text-[clamp(1.7rem,6vw,2.4rem)] font-black leading-tight">آماده‌ی <span className="text-primary">یه تمرین خوب</span>؟</h1></div>
-        <button onClick={() => nav('/app/profile')} className="press grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gradient-to-br from-primary to-[hsl(150_80%_40%)] text-lg font-black text-primary-foreground ring-4 ring-primary/15" aria-label="پروفایل">{first[0] ?? 'ک'}</button>
+      <motion.div {...up(0)} className="relative">
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-bold text-muted-foreground">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />{new Intl.DateTimeFormat('fa-IR', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date())}
+        </span>
+        <p className="mt-4 text-base font-bold text-muted-foreground">{greet()}{first && <>، <span className="text-foreground">{first}</span></>}</p>
+        <h1 className="mt-1 text-[clamp(2rem,8vw,2.9rem)] font-black leading-[1.15] tracking-tight">
+          آماده‌ی <span className="relative inline-block text-primary">یه تمرین خوب<svg viewBox="0 0 200 12" className="absolute -bottom-2 start-0 h-3 w-full text-primary/60" preserveAspectRatio="none"><path d="M2 9 Q 50 2 100 7 T 198 5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg></span>؟
+        </h1>
+        <p className="mt-3 max-w-sm text-sm text-muted-foreground">هر قدم کوچیک امروز، نتیجه‌ی بزرگ فرداست. بزن بریم 💪</p>
       </motion.div>
 
       <motion.button {...up(1)} onClick={() => { if (track) { setFullPlayer(true); return; } if (list?.length) { play(list[0], list); setFullPlayer(true); } else nav('/app/morshed'); }}
@@ -88,44 +94,3 @@ export function AppHome() {
   );
 }
 
-function TrackRow({ t, i, list }: { t: Track; i: number; list: Track[] }) {
-  const { play, track, playing, favs, toggleFav } = usePreview();
-  const active = track?.id === t.id;
-  return (
-    <li className={cn('flex items-center gap-3 rounded-2xl p-2 transition-colors hover:bg-white/5', active && 'bg-violet/10')}>
-      <button onClick={() => play(t, list)} className="flex min-w-0 flex-1 items-center gap-3 text-start" aria-label={`پخش ${t.title}`}>
-        <span className="w-5 text-center text-sm text-muted-foreground">{active && playing ? <Waveform bars={3} className="h-4" color="bg-violet" /> : fa(i + 1)}</span>
-        <Cover hue={t.hue} image={t.image} className="h-12 w-12 shrink-0 rounded-xl" />
-        <span className="min-w-0"><span className={cn('block truncate font-bold', active && 'text-[hsl(254_100%_78%)]')}>{t.title}</span><span className="block truncate text-sm text-muted-foreground">{t.artist} · <span className="font-latin text-xs">{t.license}</span></span></span>
-      </button>
-      <span className="hidden text-sm text-muted-foreground sm:block" dir="ltr">{fmt(t.duration)}</span>
-      <button className="tap grid place-items-center rounded-full" onClick={() => toggleFav(t.id)} aria-label="علاقه‌مندی" aria-pressed={favs.has(t.id)}><Heart className={cn('h-5 w-5', favs.has(t.id) ? 'fill-violet text-violet' : 'text-muted-foreground')} /></button>
-    </li>
-  );
-}
-
-export function Morshed() {
-  const { favs } = usePreview();
-  const [cat, setCat] = useState(categories[4]);
-  const [q, setQ] = useState(''); const [dq, setDq] = useState('');
-  const [onlyFav, setOnlyFav] = useState(false);
-  useEffect(() => { const t = setTimeout(() => setDq(q), 450); return () => clearTimeout(t); }, [q]);
-  const { list, err, retry } = useTracks(dq ? undefined : cat, dq || undefined);
-  const shown = useMemo(() => (list ?? []).filter((t) => !onlyFav || favs.has(t.id)), [list, onlyFav, favs]);
-  return (
-    <div className="pb-6">
-      <h1 className="text-[clamp(1.7rem,6vw,2.4rem)] font-black">مرشد <span className="text-[hsl(254_100%_78%)]">ریتم تمرینت</span></h1>
-      <div className="relative mt-4"><Search className="absolute start-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" /><input value={q} onChange={(e) => setQ(e.target.value)} placeholder="جست‌وجوی آهنگ یا هنرمند" aria-label="جست‌وجو" className="h-12 w-full rounded-full border border-white/10 bg-white/[.04] pe-4 ps-12 text-base outline-none transition focus:border-violet focus:bg-white/[.07]" /></div>
-      <div className="-mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1">
-        <button onClick={() => setOnlyFav((v) => !v)} className={cn('tap flex shrink-0 items-center gap-1.5 rounded-full px-4 text-sm font-bold transition', onlyFav ? 'bg-violet text-white' : 'bg-white/5 text-muted-foreground')}><Heart className="h-4 w-4" />علاقه‌مندی‌ها</button>
-        {categories.map((c) => <button key={c} onClick={() => { setCat(c); setQ(''); }} className={cn('tap shrink-0 rounded-full px-4 text-sm font-bold transition', cat === c && !dq ? 'bg-violet text-white' : 'bg-white/5 text-muted-foreground')}>{c}</button>)}
-      </div>
-      <H t={dq ? `نتایج «${dq}»` : cat} />
-      {err ? <StateView icon={RefreshCw} tone="violet" title="موزیک‌ها بارگذاری نشد" text={err} action={<button onClick={retry} className="tap rounded-full bg-violet px-5 font-bold text-white">تلاش دوباره</button>} />
-        : !list ? <div className="space-y-2">{Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-16 rounded-2xl" />)}</div>
-        : shown.length ? <ul className="space-y-1">{shown.map((t, i) => <TrackRow key={t.id} t={t} i={i} list={shown} />)}</ul>
-        : <StateView icon={SearchX} tone="violet" title="چیزی پیدا نشد" text="فیلترها یا جست‌وجو را تغییر بده." />}
-      <p className="mt-6 text-center text-xs text-muted-foreground">آهنگ‌ها از Jamendo با مجوز Creative Commons؛ نام هنرمند کنار هر آهنگ آمده است.</p>
-    </div>
-  );
-}

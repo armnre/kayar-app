@@ -8,7 +8,7 @@ import { SessionProvider } from './lib/session';
 import { Landing, BlogList, BlogPost, StaticPage } from './pages/Site';
 import { Login, ChangePassword } from './pages/AppAuth';
 import AppShell from './components/app/AppShell';
-import { AppHome, Morshed, Bodyyar, Profile } from './pages/AppPages';
+import { AppHome, Morshed, Bodyyar, Profile, Notifications } from './pages/AppPages';
 import AdminShell, { AdminLogin } from './components/admin/AdminShell';
 import { AdminDashboard, AdminCustomers, AdminContent, AdminPosts, AdminMedia, AdminMorshed, AdminSettings, AdminAudit, AdminPlaceholder, AdminStaff } from './pages/Admin';
 import { NotFound, Styleguide } from './pages/Misc';
@@ -35,6 +35,7 @@ export default function App() {
             <Route path="morshed" element={<Morshed />} />
             <Route path="bodyyar" element={<Bodyyar />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="notifications" element={<Notifications />} />
           </Route>
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminShell />}>

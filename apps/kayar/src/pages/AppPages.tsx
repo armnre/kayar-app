@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { ArrowLeft, Dumbbell, Salad, LineChart, Check, Send, Loader2, Bot } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowLeft, Dumbbell, Salad, LineChart, Check, Send, Loader2, Bot, Sparkles } from 'lucide-react';
 import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
 import { cn } from '@project/components/lib/utils';
 import { KButton, Glass, IconBox, SampleBadge, ProgressRing, StateView } from '../components/kit';
 import { H } from '../components/app/HomeMorshed';
 import { fa } from '../lib/config';
-export { AppHome, Morshed } from '../components/app/HomeMorshed';
+export { AppHome } from '../components/app/HomeMorshed';
+export { Morshed } from '../components/app/Morshed';
+export { Notifications } from '../components/app/Notifications';
 export { Profile } from '../components/app/Profile';
 
 const wizard = [
@@ -24,18 +27,26 @@ export function Bodyyar() {
   const [day, setDay] = useState(0); const [done, setDone] = useState<Set<number>>(new Set([0]));
   const [msg, setMsg] = useState('');
   if (stage === 'intro') return (
-    <div>
-      <div className="relative overflow-hidden rounded-[32px] bg-primary p-6 text-primary-foreground">
-        <div className="absolute -end-10 -top-10 h-48 w-48 rounded-full border-[18px] border-black/10" />
-        <h1 className="relative text-[clamp(1.6rem,6vw,2.25rem)] font-black">بدن‌یار</h1>
-        <p className="relative mt-1 max-w-sm font-medium opacity-80">با شش سؤال ساده، برنامه‌ی تمرین و غذایی مخصوص خودت رو بگیر.</p>
-        <button onClick={() => setStage('wizard')} className="press tap relative mt-5 inline-flex h-12 items-center gap-2 rounded-full bg-primary-foreground px-6 font-bold text-primary">شروع کن <ArrowLeft className="h-5 w-5" /></button>
-      </div>
-      <H t="چه می‌گیری؟" />
+    <div className="pb-6">
+      <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} className="relative overflow-hidden rounded-[32px] bg-[radial-gradient(120%_120%_at_100%_0%,hsl(71_100%_56%),hsl(110_70%_38%)_55%,hsl(160_60%_14%))] p-6 pb-7 text-primary-foreground shadow-[0_24px_60px_-24px_hsl(71_100%_50%/.7)]">
+        <div className="pointer-events-none absolute -end-12 -top-12 h-56 w-56 rounded-full border-[26px] border-black/10" />
+        <div className="pointer-events-none absolute -bottom-20 -start-10 h-48 w-48 rounded-full bg-white/20 blur-3xl" />
+        <span className="relative inline-flex items-center gap-1.5 rounded-full bg-black/15 px-3 py-1 text-xs font-bold"><Sparkles className="h-3.5 w-3.5" />مربی شخصی تو</span>
+        <h1 className="relative mt-4 text-[clamp(2rem,8vw,2.8rem)] font-black leading-tight">بدن‌یار</h1>
+        <p className="relative mt-1 max-w-xs font-medium opacity-80">شش سؤال ساده، یه برنامه‌ی تمرین و تغذیه که فقط مال خودته.</p>
+        <div className="relative mt-6 flex items-center gap-3">
+          <button onClick={() => setStage('wizard')} className="press inline-flex h-12 items-center gap-2 rounded-full bg-primary-foreground px-6 font-black text-primary shadow-xl">شروع کن <ArrowLeft className="h-5 w-5" /></button>
+          <span className="text-xs font-bold opacity-70">⏱ کمتر از ۱ دقیقه</span>
+        </div>
+      </motion.div>
+      <H t="چی می‌گیری؟" />
       <div className="grid gap-3 sm:grid-cols-3">
-        {[[Dumbbell, 'برنامه‌ی تمرین', 'متناسب با سطح و زمانت'], [Salad, 'برنامه‌ی غذایی', 'با غذاهای در دسترس'], [LineChart, 'پیگیری', 'وزن و پیشرفت هفتگی']].map(([I, t, d]) => <Glass key={t as string} className="p-4"><IconBox icon={I as typeof Dumbbell} /><div className="mt-3 font-bold">{t as string}</div><div className="text-sm text-muted-foreground">{d as string}</div></Glass>)}
+        {[[Dumbbell, 'برنامه‌ی تمرین', 'متناسب با سطح و زمانت', 'bg-primary/15 text-primary'], [Salad, 'برنامه‌ی غذایی', 'با غذاهای در دسترس', 'bg-[hsl(24_100%_60%/.15)] text-[hsl(24_100%_65%)]'], [LineChart, 'پیگیری پیشرفت', 'وزن و روند هفتگی', 'bg-violet/15 text-[hsl(254_100%_78%)]']].map(([I, t, d, c], i) => {
+          const Ic = I as typeof Dumbbell;
+          return <motion.div key={t as string} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 + i * 0.07 }} className="flex items-center gap-3 rounded-3xl border border-border bg-card p-4 sm:block"><span className={cn('grid h-12 w-12 shrink-0 place-items-center rounded-2xl', c as string)}><Ic className="h-6 w-6" /></span><div className="sm:mt-3"><div className="font-black">{t as string}</div><div className="text-sm text-muted-foreground">{d as string}</div></div></motion.div>;
+        })}
       </div>
-      <button onClick={() => setStage('plan')} className="tap mt-4 text-sm text-muted-foreground underline">دیدن برنامه‌ی نمونه</button>
+      <button onClick={() => setStage('plan')} className="tap mt-5 w-full rounded-2xl border border-dashed border-border text-sm font-bold text-muted-foreground">دیدن یه برنامه‌ی نمونه</button>
     </div>
   );
   if (stage === 'wizard') {
@@ -44,9 +55,9 @@ export function Bodyyar() {
       <div>
         <div className="flex items-center gap-2" aria-label={`مرحله‌ی ${fa(step + 1)} از ${fa(6)}`}>{wizard.map((_, i) => <span key={i} className={cn('h-1.5 flex-1 rounded-full transition-colors', i <= step ? 'bg-primary' : 'bg-white/10')} />)}</div>
         <div className="mt-2 text-sm text-muted-foreground">مرحله‌ی {fa(step + 1)} از {fa(6)}</div>
-        <h1 className="mt-6 text-2xl font-black">{s.q}</h1>
+        <motion.h1 key={step} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="mt-6 text-[clamp(1.6rem,6vw,2.1rem)] font-black">{s.q}</motion.h1>
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
-          {s.o.map((o) => <button key={o} onClick={() => { const a = [...ans]; a[step] = o; setAns(a); }} className={cn('press glass flex min-h-[64px] items-center justify-between rounded-3xl px-5 text-start text-lg font-bold', ans[step] === o && 'glass-active')}>{o}{ans[step] === o && <Check className="h-5 w-5 text-primary" />}</button>)}
+          {s.o.map((o) => <button key={o} onClick={() => { const a = [...ans]; a[step] = o; setAns(a); }} className={cn('press flex min-h-[64px] items-center justify-between rounded-3xl border bg-card px-5 text-start text-lg font-bold transition', ans[step] === o ? 'border-primary bg-primary/10 text-primary' : 'border-border')}>{o}{ans[step] === o && <Check className="h-5 w-5 text-primary" />}</button>)}
         </div>
         <div className="mt-8 flex gap-3">
           <KButton variant="outline" onClick={() => (step ? setStep(step - 1) : setStage('intro'))}>قبلی</KButton>
@@ -55,7 +66,7 @@ export function Bodyyar() {
       </div>
     );
   }
-  if (stage === 'building') return <StateView icon={Loader2} title="بدن‌یار داره برنامه‌ات رو می‌سازه…" text="(نمونه — ساخت واقعی با هوش مصنوعی در فاز ۱)" />;
+  if (stage === 'building') return <StateView icon={Loader2} title="بدن‌یار داره برنامه‌ات رو می‌سازه…" text="چند ثانیه صبر کن…" />;
   const days = ['شنبه', 'یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه'];
   const ex = [['اسکات با هالتر', '۴×۱۰'], ['پرس سینه', '۴×۸'], ['زیربغل سیم‌کش', '۳×۱۲'], ['پلانک', '۳×۴۵ثانیه']];
   return (
