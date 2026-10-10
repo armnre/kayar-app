@@ -1,0 +1,1466 @@
+{
+  "tables": [
+    {
+      "id": "ttDjhxswBfW",
+      "sdkName": "members",
+      "name": "Members",
+      "primaryFieldId": "fhYzBXizkZC",
+      "fields": [
+        {
+          "id": "fhYzBXizkZC",
+          "sdkName": "username",
+          "definition": {
+            "name": "Username",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fq7Siov3hyU",
+          "sdkName": "phone",
+          "definition": {
+            "name": "Phone",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fcikiBgc3Wm",
+          "sdkName": "displayName",
+          "definition": {
+            "name": "Display Name",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fpqTaGnFLA8",
+          "sdkName": "role",
+          "definition": {
+            "name": "Role",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "wdrf",
+                  "label": "member",
+                  "color": "purple"
+                },
+                {
+                  "value": "fVv2",
+                  "label": "coach",
+                  "color": "orange"
+                },
+                {
+                  "value": "6R2D",
+                  "label": "support",
+                  "color": "blue"
+                },
+                {
+                  "value": "uiWa",
+                  "label": "editor",
+                  "color": "gray"
+                },
+                {
+                  "value": "c8QB",
+                  "label": "admin",
+                  "color": "red"
+                },
+                {
+                  "value": "rECy",
+                  "label": "superadmin",
+                  "color": "yellow"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fb8Tna7rBaX",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "xq3t",
+                  "label": "active",
+                  "color": "purple"
+                },
+                {
+                  "value": "hRWD",
+                  "label": "suspended",
+                  "color": "orange"
+                },
+                {
+                  "value": "e8BU",
+                  "label": "deleted",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f7YdGr4ygTv",
+          "sdkName": "passwordHash",
+          "definition": {
+            "name": "Password Hash",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fn8haEViF1v",
+          "sdkName": "mustChangePassword",
+          "definition": {
+            "name": "Must Change Password",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fxbNaBcTHTq",
+          "sdkName": "passwordChangedAt",
+          "definition": {
+            "name": "Password Changed At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f4Bg7iKtGsr",
+          "sdkName": "lastLoginAt",
+          "definition": {
+            "name": "Last Login At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "ftXPzE28CGz",
+          "sdkName": "orderRef",
+          "definition": {
+            "name": "Order Ref",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkZBxZuiQAU",
+          "sdkName": "note",
+          "definition": {
+            "name": "Note",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f4XGcG3w3q3",
+          "sdkName": "createdBy",
+          "definition": {
+            "name": "Created By",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "foVZbDsad3v",
+          "sdkName": "tags",
+          "definition": {
+            "name": "Tags",
+            "type": "multiple_select",
+            "template": {
+              "options": [
+                {
+                  "value": "fmzu",
+                  "label": "vip",
+                  "color": "purple"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f5m5n1Dpcor",
+          "sdkName": "createdAt",
+          "definition": {
+            "name": "Created At",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t9FAdKRpM5C",
+      "sdkName": "sessions",
+      "name": "Sessions",
+      "primaryFieldId": "frqpJqt4ons",
+      "fields": [
+        {
+          "id": "frqpJqt4ons",
+          "sdkName": "tokenHash",
+          "definition": {
+            "name": "Token Hash",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmuFmAHp1j5",
+          "sdkName": "memberId",
+          "definition": {
+            "name": "Member Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwaqLLr4HQ8",
+          "sdkName": "userAgent",
+          "definition": {
+            "name": "User Agent",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f7yeG8wHuzB",
+          "sdkName": "createdAt",
+          "definition": {
+            "name": "Created At",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fi7heJwWjbv",
+          "sdkName": "lastSeenAt",
+          "definition": {
+            "name": "Last Seen At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fjcefre44Fb",
+          "sdkName": "expiresAt",
+          "definition": {
+            "name": "Expires At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fuDP9Yg8vq1",
+          "sdkName": "revokedAt",
+          "definition": {
+            "name": "Revoked At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ttJR9JnzxRW",
+      "sdkName": "loginAttempts",
+      "name": "Login Attempts",
+      "primaryFieldId": "fhNTKt1wuH4",
+      "fields": [
+        {
+          "id": "fhNTKt1wuH4",
+          "sdkName": "key",
+          "definition": {
+            "name": "Key",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fv5mmQjBZw3",
+          "sdkName": "count",
+          "definition": {
+            "name": "Count",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "ftg5oF92jHJ",
+          "sdkName": "windowStart",
+          "definition": {
+            "name": "Window Start",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fs7QDXPVwMN",
+          "sdkName": "lockedUntil",
+          "definition": {
+            "name": "Locked Until",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tkqdv32DAzU",
+      "sdkName": "auditLogs",
+      "name": "Audit Logs",
+      "primaryFieldId": "fuCmtQ3A6Up",
+      "fields": [
+        {
+          "id": "fuCmtQ3A6Up",
+          "sdkName": "action",
+          "definition": {
+            "name": "Action",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwyJUnGwF6A",
+          "sdkName": "actorId",
+          "definition": {
+            "name": "Actor Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1CWmXfn4yF",
+          "sdkName": "targetType",
+          "definition": {
+            "name": "Target Type",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "feM33u3FVFn",
+          "sdkName": "targetId",
+          "definition": {
+            "name": "Target Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fi7jTZ3R3Jd",
+          "sdkName": "meta",
+          "definition": {
+            "name": "Meta",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmFKSjhvebQ",
+          "sdkName": "createdAt",
+          "definition": {
+            "name": "Created At",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t91Mnd7Dstp",
+      "sdkName": "siteSettings",
+      "name": "Site Settings",
+      "primaryFieldId": "fpALi5JDbzx",
+      "fields": [
+        {
+          "id": "fpALi5JDbzx",
+          "sdkName": "key",
+          "definition": {
+            "name": "Key",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmKWGZ2TkLH",
+          "sdkName": "value",
+          "definition": {
+            "name": "Value",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fss8otcKYf6",
+          "sdkName": "updatedAt",
+          "definition": {
+            "name": "Updated At",
+            "type": "updated_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "teE8XB8fUrr",
+      "sdkName": "cmsBlocks",
+      "name": "Cms Blocks",
+      "primaryFieldId": "fhfqWTh2G2p",
+      "fields": [
+        {
+          "id": "fhfqWTh2G2p",
+          "sdkName": "key",
+          "definition": {
+            "name": "Key",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2dHiWJxLZ7",
+          "sdkName": "content",
+          "definition": {
+            "name": "Content",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8sWDk2WCDc",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "as5n",
+                  "label": "draft",
+                  "color": "purple"
+                },
+                {
+                  "value": "auj9",
+                  "label": "published",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fvkXMaufNwS",
+          "sdkName": "publishedContent",
+          "definition": {
+            "name": "Published Content",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fsxmZfduwor",
+          "sdkName": "version",
+          "definition": {
+            "name": "Version",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "fwWL34zjgHN",
+          "sdkName": "updatedBy",
+          "definition": {
+            "name": "Updated By",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8oagNQA44d",
+          "sdkName": "updatedAt",
+          "definition": {
+            "name": "Updated At",
+            "type": "updated_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tkx1Htmu8fp",
+      "sdkName": "cmsBlockVersions",
+      "name": "Cms Block Versions",
+      "primaryFieldId": "fjMgp5ntYzq",
+      "fields": [
+        {
+          "id": "fjMgp5ntYzq",
+          "sdkName": "blockKey",
+          "definition": {
+            "name": "Block Key",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ftDET2LqrHw",
+          "sdkName": "version",
+          "definition": {
+            "name": "Version",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "f8hbGtzqmuS",
+          "sdkName": "content",
+          "definition": {
+            "name": "Content",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fbyHqRV2tsJ",
+          "sdkName": "savedBy",
+          "definition": {
+            "name": "Saved By",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "ffg4dT6gE51",
+          "sdkName": "createdAt",
+          "definition": {
+            "name": "Created At",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tbQ1kaDS7K6",
+      "sdkName": "posts",
+      "name": "Posts",
+      "primaryFieldId": "ffRhYA4SK8Q",
+      "fields": [
+        {
+          "id": "ffRhYA4SK8Q",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f4ReomL9WLs",
+          "sdkName": "slug",
+          "definition": {
+            "name": "Slug",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f94tR7f3J8L",
+          "sdkName": "excerpt",
+          "definition": {
+            "name": "Excerpt",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmYq4FzwvBj",
+          "sdkName": "body",
+          "definition": {
+            "name": "Body",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f3J72P8HGos",
+          "sdkName": "coverMediaId",
+          "definition": {
+            "name": "Cover Media Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdLiZ8RWmGv",
+          "sdkName": "tags",
+          "definition": {
+            "name": "Tags",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "foVxVGe348e",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "aHPj",
+                  "label": "draft",
+                  "color": "purple"
+                },
+                {
+                  "value": "s4kQ",
+                  "label": "published",
+                  "color": "orange"
+                },
+                {
+                  "value": "vWmj",
+                  "label": "archived",
+                  "color": "blue"
+                },
+                {
+                  "value": "mU7N",
+                  "label": "deleted",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fru1Y2oWz6T",
+          "sdkName": "publishedAt",
+          "definition": {
+            "name": "Published At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "ftcwgQJPDax",
+          "sdkName": "seoTitle",
+          "definition": {
+            "name": "Seo Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f7t8GMxqHkW",
+          "sdkName": "seoDescription",
+          "definition": {
+            "name": "Seo Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fmeLTGcZvAU",
+          "sdkName": "authorId",
+          "definition": {
+            "name": "Author Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fak4rFikvHy",
+          "sdkName": "createdAt",
+          "definition": {
+            "name": "Created At",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tqBP262N5dT",
+      "sdkName": "mediaAssets",
+      "name": "Media Assets",
+      "primaryFieldId": "fhZABUdTzAr",
+      "fields": [
+        {
+          "id": "fhZABUdTzAr",
+          "sdkName": "alt",
+          "definition": {
+            "name": "Alt",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1rmA6GQtEa",
+          "sdkName": "fileUrl",
+          "definition": {
+            "name": "File Url",
+            "type": "url",
+            "template": {}
+          }
+        },
+        {
+          "id": "fhsKtqsE9SP",
+          "sdkName": "kind",
+          "definition": {
+            "name": "Kind",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8Wpar4TPam",
+          "sdkName": "width",
+          "definition": {
+            "name": "Width",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "fbuLJv5Bwzb",
+          "sdkName": "height",
+          "definition": {
+            "name": "Height",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "f9kC8xocqbX",
+          "sdkName": "size",
+          "definition": {
+            "name": "Size",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "f5kp3A2mjNy",
+          "sdkName": "uploadedBy",
+          "definition": {
+            "name": "Uploaded By",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "foWRrtJshNc",
+          "sdkName": "createdAt",
+          "definition": {
+            "name": "Created At",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tgPNv6HbNHo",
+      "sdkName": "tracks",
+      "name": "Tracks",
+      "primaryFieldId": "frEgMYQrEPf",
+      "fields": [
+        {
+          "id": "frEgMYQrEPf",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f1Xgz9YEM6v",
+          "sdkName": "source",
+          "definition": {
+            "name": "Source",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "nEzz",
+                  "label": "jamendo",
+                  "color": "purple"
+                },
+                {
+                  "value": "kobv",
+                  "label": "upload",
+                  "color": "orange"
+                },
+                {
+                  "value": "f2aw",
+                  "label": "external",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fuTpp2kTc9s",
+          "sdkName": "sourceId",
+          "definition": {
+            "name": "Source Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f5uacwuJbyD",
+          "sdkName": "artist",
+          "definition": {
+            "name": "Artist",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fqEe1FRNpas",
+          "sdkName": "album",
+          "definition": {
+            "name": "Album",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f468HqQrjgB",
+          "sdkName": "coverUrl",
+          "definition": {
+            "name": "Cover Url",
+            "type": "url",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8cXJ5nSrte",
+          "sdkName": "audioUrl",
+          "definition": {
+            "name": "Audio Url",
+            "type": "url",
+            "template": {}
+          }
+        },
+        {
+          "id": "fn6zAZQfgKX",
+          "sdkName": "durationSeconds",
+          "definition": {
+            "name": "Duration Seconds",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "fqmqkX8bmFN",
+          "sdkName": "licenseUrl",
+          "definition": {
+            "name": "License Url",
+            "type": "url",
+            "template": {}
+          }
+        },
+        {
+          "id": "f6tirnFWvwS",
+          "sdkName": "shareUrl",
+          "definition": {
+            "name": "Share Url",
+            "type": "url",
+            "template": {}
+          }
+        },
+        {
+          "id": "fh3XsW89oKS",
+          "sdkName": "rights",
+          "definition": {
+            "name": "Rights",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkMHgxaVzY8",
+          "sdkName": "categories",
+          "definition": {
+            "name": "Categories",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fvoWFPtHZ7a",
+          "sdkName": "tags",
+          "definition": {
+            "name": "Tags",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2aQ268UJPJ",
+          "sdkName": "isFeatured",
+          "definition": {
+            "name": "Is Featured",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "fg2hw31FfNt",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "bWtD",
+                  "label": "draft",
+                  "color": "purple"
+                },
+                {
+                  "value": "w7p5",
+                  "label": "published",
+                  "color": "orange"
+                },
+                {
+                  "value": "fc5e",
+                  "label": "hidden",
+                  "color": "blue"
+                },
+                {
+                  "value": "8sHC",
+                  "label": "deleted",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fjmtU17prKZ",
+          "sdkName": "sortOrder",
+          "definition": {
+            "name": "Sort Order",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "f8n4VeQrv4Z",
+          "sdkName": "createdAt",
+          "definition": {
+            "name": "Created At",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tmXtQQtYwf5",
+      "sdkName": "collections",
+      "name": "Collections",
+      "primaryFieldId": "fuuAegYhUSR",
+      "fields": [
+        {
+          "id": "fuuAegYhUSR",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fdTpywRRR5Q",
+          "sdkName": "slug",
+          "definition": {
+            "name": "Slug",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwZRvSw9yrX",
+          "sdkName": "description",
+          "definition": {
+            "name": "Description",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fxv1Nsj1EtR",
+          "sdkName": "coverUrl",
+          "definition": {
+            "name": "Cover Url",
+            "type": "url",
+            "template": {}
+          }
+        },
+        {
+          "id": "fwigngRBfes",
+          "sdkName": "type",
+          "definition": {
+            "name": "Type",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "c3N8",
+                  "label": "row",
+                  "color": "purple"
+                },
+                {
+                  "value": "ooF2",
+                  "label": "playlist",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "ff4mdi6UcCh",
+          "sdkName": "placement",
+          "definition": {
+            "name": "Placement",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "djDn",
+                  "label": "home",
+                  "color": "purple"
+                },
+                {
+                  "value": "gwi6",
+                  "label": "morshed",
+                  "color": "orange"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "fx9Hci67xpw",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "gnut",
+                  "label": "draft",
+                  "color": "purple"
+                },
+                {
+                  "value": "fhsj",
+                  "label": "published",
+                  "color": "orange"
+                },
+                {
+                  "value": "vGCK",
+                  "label": "hidden",
+                  "color": "blue"
+                },
+                {
+                  "value": "o2tS",
+                  "label": "deleted",
+                  "color": "gray"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "f3q9X3C1dLw",
+          "sdkName": "sortOrder",
+          "definition": {
+            "name": "Sort Order",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t92oM8V9m2K",
+      "sdkName": "collectionItems",
+      "name": "Collection Items",
+      "primaryFieldId": "f7MyLREHZ5G",
+      "fields": [
+        {
+          "id": "f7MyLREHZ5G",
+          "sdkName": "collectionId",
+          "definition": {
+            "name": "Collection Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fd9Li4DsjJt",
+          "sdkName": "trackId",
+          "definition": {
+            "name": "Track Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fkqFrznhJ4T",
+          "sdkName": "sortOrder",
+          "definition": {
+            "name": "Sort Order",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "thZGZiodxs1",
+      "sdkName": "favorites",
+      "name": "Favorites",
+      "primaryFieldId": "f8N9BQ4pE7V",
+      "fields": [
+        {
+          "id": "f8N9BQ4pE7V",
+          "sdkName": "memberId",
+          "definition": {
+            "name": "Member Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8vBTjyBYST",
+          "sdkName": "trackId",
+          "definition": {
+            "name": "Track Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "faMzgisHcxv",
+          "sdkName": "createdAt",
+          "definition": {
+            "name": "Created At",
+            "type": "created_at",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "tqTW1YoBY2K",
+      "sdkName": "listeningHistory",
+      "name": "Listening History",
+      "primaryFieldId": "fnBhpSWN3VL",
+      "fields": [
+        {
+          "id": "fnBhpSWN3VL",
+          "sdkName": "memberId",
+          "definition": {
+            "name": "Member Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fuUZCzzHNgf",
+          "sdkName": "trackId",
+          "definition": {
+            "name": "Track Id",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fjuAunrR2qZ",
+          "sdkName": "positionSec",
+          "definition": {
+            "name": "Position Sec",
+            "type": "number",
+            "template": {
+              "numberFormat": "local",
+              "decimalPlaces": 1
+            }
+          }
+        },
+        {
+          "id": "f8ALZus9zqt",
+          "sdkName": "completed",
+          "definition": {
+            "name": "Completed",
+            "type": "checkbox",
+            "template": {}
+          }
+        },
+        {
+          "id": "f7YDpH3EsJe",
+          "sdkName": "playedAt",
+          "definition": {
+            "name": "Played At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "t5dxgqaek8T",
+      "sdkName": "announcements",
+      "name": "Announcements",
+      "primaryFieldId": "fqEiHsPUsLh",
+      "fields": [
+        {
+          "id": "fqEiHsPUsLh",
+          "sdkName": "title",
+          "definition": {
+            "name": "Title",
+            "type": "single_line_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "fiF2YLbZ1CY",
+          "sdkName": "body",
+          "definition": {
+            "name": "Body",
+            "type": "long_text",
+            "template": {}
+          }
+        },
+        {
+          "id": "f8ePpCC8Lwf",
+          "sdkName": "link",
+          "definition": {
+            "name": "Link",
+            "type": "url",
+            "template": {}
+          }
+        },
+        {
+          "id": "f2xsDoC7Z78",
+          "sdkName": "startsAt",
+          "definition": {
+            "name": "Starts At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "fi61gr2jgrU",
+          "sdkName": "endsAt",
+          "definition": {
+            "name": "Ends At",
+            "type": "datetime",
+            "template": {
+              "timezone": "",
+              "dateFormat": "local",
+              "timeFormat": "12h",
+              "displayTimeZone": false
+            }
+          }
+        },
+        {
+          "id": "f3o2jhqFAs1",
+          "sdkName": "status",
+          "definition": {
+            "name": "Status",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "8z1i",
+                  "label": "draft",
+                  "color": "purple"
+                },
+                {
+                  "value": "3SPx",
+                  "label": "published",
+                  "color": "orange"
+                },
+                {
+                  "value": "2xzk",
+                  "label": "deleted",
+                  "color": "blue"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        },
+        {
+          "id": "foTu1sdieCn",
+          "sdkName": "audience",
+          "definition": {
+            "name": "Audience",
+            "type": "single_select",
+            "template": {
+              "options": [
+                {
+                  "value": "uBt8",
+                  "label": "all",
+                  "color": "purple"
+                }
+              ],
+              "disableColors": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

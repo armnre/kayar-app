@@ -1,1 +1,0 @@
-# kayar-app
