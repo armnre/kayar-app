@@ -45,7 +45,8 @@ function HomeAnnouncement() {
   return item.external ? <a href={item.link} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a> : <Link to={item.link} className={cls}>{inner}</Link>;
 }
 
-function greet() { const h = new Date().getHours(); return h < 5 ? 'شب بخیر' : h < 12 ? 'صبح بخیر' : h < 17 ? 'ظهر بخیر' : 'عصر بخیر'; }
+function greet() { const h = new Date().getHours(); return h < 5 ? 'شب بخیر' : h < 11 ? 'صبح بخیر' : h < 15 ? 'ظهر بخیر' : h < 19 ? 'عصر بخیر' : 'شب بخیر'; }
+function subline() { const h = new Date().getHours(); return h < 5 || h >= 21 ? 'یه کشش سبک قبل خواب، بدنت ازت ممنون میشه.' : h < 11 ? 'روزت رو با یه تمرین پرانرژی شروع کن.' : h < 19 ? 'امروز بدنت رو به حرکت دربیار.' : 'هنوز وقت هست؛ یه تمرین کوتاه بزن.'; }
 
 export function AppHome() {
   const { member } = useSession('app');
@@ -60,7 +61,7 @@ export function AppHome() {
         <div className="min-w-0">
           <p className="text-xs font-bold text-muted-foreground">{new Intl.DateTimeFormat('fa-IR', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date())}</p>
           <h1 className="mt-1 truncate text-2xl font-black tracking-tight">{greet()}{first && <>، <span className="text-primary">{first}</span></>}</h1>
-          <p className="mt-0.5 text-sm text-muted-foreground">امروز بدنت رو به حرکت دربیار.</p>
+          <p className="mt-0.5 text-sm text-muted-foreground">{subline()}</p>
         </div>
         <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-primary mb-2" />
       </motion.div>
