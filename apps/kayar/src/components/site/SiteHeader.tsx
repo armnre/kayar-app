@@ -8,7 +8,6 @@ import { KayarLogo, KButton } from '../kit';
 const links = [
   { href: '/#morshed', label: 'مرشد' },
   { href: '/#bodyyar', label: 'بدن‌یار' },
-  { href: '/#shop', label: 'فروشگاه کاپوش' },
   { href: '/blog', label: 'وبلاگ' },
 ];
 

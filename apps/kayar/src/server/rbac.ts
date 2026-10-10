@@ -33,7 +33,7 @@ export async function requireSession(token: string, opts: { allowPasswordChange?
   const member = await zite.members.findOne({ id: s.memberId });
   if (!member || member.status === 'deleted') throw unauth();
   if (member.status === 'suspended') throw new ZiteError({ code: 'FORBIDDEN', message: 'ACCOUNT_SUSPENDED', userFacingMessage: 'حساب شما تعلیق شده است. با پشتیبانی تماس بگیرید.' });
-  if (member.mustChangePassword && !opts.allowPasswordChange)
+  if (member.mustChangePassword && member.role === 'member' && !opts.allowPasswordChange)
     throw new ZiteError({ code: 'FORBIDDEN', message: 'PASSWORD_CHANGE_REQUIRED', userFacingMessage: 'PASSWORD_CHANGE_REQUIRED: ابتدا رمز خود را تغییر دهید.' });
   // sliding expiry, written at most every 10 minutes
   if (!s.lastSeenAt || Date.now() - new Date(s.lastSeenAt).getTime() > 10 * 60_000) {

@@ -1,5 +1,5 @@
 // Sample data — every UI that uses this shows a «نمونه» badge. Replaced by real data in phase 1.
-export type Track = { id: string; title: string; artist: string; duration: number; cat: string; hue: number; license: string };
+export type Track = { id: string; title: string; artist: string; duration: number; cat: string; hue: number; license: string; audio?: string; image?: string };
 
 export const categories = ['شروع قدرتی', 'کاردیو', 'ریکاوری', 'تمرکز', 'انرژی'];
 

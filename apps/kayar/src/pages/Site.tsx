@@ -4,7 +4,7 @@ import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { cn } from '@project/components/lib/utils';
 import SiteHeader, { useMeta } from '../components/site/SiteHeader';
 import Hero from '../components/site/Hero';
-import { Steps, MorshedSection, BodyyarSection, ShopSection, BlogCards, FAQ, FinalCTA, Footer, SectionHead, Divider } from '../components/site/Sections';
+import { Steps, MorshedSection, BodyyarSection, BlogCards, FAQ, FinalCTA, Footer, SectionHead } from '../components/site/Sections';
 import { useReveal, KButton, SampleBadge, StateView } from '../components/kit';
 import { posts } from '../data/sample';
 import { fa, faDate } from '../lib/config';
@@ -31,12 +31,6 @@ export function Landing() {
         <Steps />
         <MorshedSection />
         <BodyyarSection />
-        <Divider />
-        <section id="shop" className="scroll-mt-20 px-4 py-20">
-          <SectionHead eyebrow="KAPOOSH STORE" title="از فروشگاه" accent="کاپوش" text="لباسی که با آن، کایار هم مال توست." />
-          <ShopSection />
-          <div className="mt-8 text-center"><KButton variant="outline" onClick={() => window.open('https://kapoosh.ir', '_blank')}>رفتن به kapoosh.ir</KButton></div>
-        </section>
         <section className="px-4 py-20">
           <SectionHead eyebrow="BLOG" title="تازه‌ها از" accent="وبلاگ" />
           <div className="mx-auto max-w-6xl"><BlogCards /></div>

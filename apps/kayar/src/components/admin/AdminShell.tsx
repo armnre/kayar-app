@@ -1,3 +1,4 @@
+import ErrorNotice from '../ErrorNotice';
 import { useEffect, useState, type FormEvent } from 'react';
 import { publicSettings } from 'zitejs/api';
 import { NavLink, Outlet, Navigate, useNavigate } from 'react-router-dom';
@@ -41,7 +42,6 @@ export default function AdminShell() {
   const nav = useNavigate();
   if (loading) return <div className="grid min-h-svh place-items-center depth-bg"><KayarLogo className="animate-pulse text-xl" /></div>;
   if (!member) return <Navigate to="/admin/login" replace />;
-  if (member.mustChangePassword) return <AdminChangePassword />;
   return (
     <div className="min-h-svh depth-bg">
       <div className="flex">
@@ -88,7 +88,7 @@ function AuthFrame({ children, onSubmit }: { children: React.ReactNode; onSubmit
     </div>
   );
 }
-const ErrBox = ({ err }: { err?: string }) => err ? <div role="alert" className="rounded-2xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">{err}</div> : null;
+const ErrBox = ({ err }: { err?: string }) => <ErrorNotice err={err} />;
 
 export function AdminLogin() {
   const { login, member } = useSession('admin');

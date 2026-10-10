@@ -6,6 +6,7 @@ import { ArrowLeft, Phone, MessageCircle, ShieldCheck, Check } from 'lucide-reac
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from '@project/components/ui/sheet';
 import { KayarLogo, KButton, FloatInput, PasswordField, passwordRules } from '../components/kit';
 import { useSession, errMsg } from '../lib/session';
+import ErrorNotice from '../components/ErrorNotice';
 
 /** Only same-app relative paths under /app are allowed as returnTo (no open redirects). */
 const safeReturn = (v: string | null) => (v && /^\/app(\/[\w\-/]*)?$/.test(v) && !v.startsWith('/app/login') ? v : '/app');
@@ -28,7 +29,7 @@ function ArtPanel() {
   useEffect(() => { const t = setInterval(() => setQ((x) => (x + 1) % quotes.length), 3800); return () => clearInterval(t); }, []);
   return (
     <div className="relative hidden overflow-hidden lg:block">
-      <img src="https://images.fillout.com/888622/bvjezbu9kd/generated-images/m7CVfYZ1XxoDXoHHPmRnjU/img_6hSskSlC6BwCKZ21.jpg" alt="" width={1056} height={1408} className="absolute inset-0 h-full w-full object-cover object-top" />
+      <img src="https://images.fillout.com/888646/9une2mcrla/generated-images/rTnQKvHZxdgaFf9Ji1zPET/img_PJWMwZkZrR_2yKfV.jpg" alt="" width={1056} height={1408} className="absolute inset-0 h-full w-full object-cover object-top" />
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-l from-background/80 to-transparent" />
       <div className="absolute -bottom-20 -start-10 h-72 w-72 -rotate-12 rounded-[40px] bg-primary/80 mix-blend-multiply" />
@@ -67,7 +68,7 @@ export function Login() {
       <ArtPanel />
       <div className="relative flex min-h-svh flex-col">
         <div className="relative h-[40svh] overflow-hidden lg:hidden">
-          <img src="https://images.fillout.com/888622/bvjezbu9kd/generated-images/m7CVfYZ1XxoDXoHHPmRnjU/img_6hSskSlC6BwCKZ21.jpg" alt="" width={1056} height={1408} fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-[50%_15%]" />
+          <img src="https://images.fillout.com/888646/9une2mcrla/generated-images/rTnQKvHZxdgaFf9Ji1zPET/img_PJWMwZkZrR_2yKfV.jpg" alt="" width={1056} height={1408} fetchPriority="high" className="absolute inset-0 h-full w-full object-cover object-[50%_15%]" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/10" />
           <div className="absolute -bottom-10 -end-10 h-40 w-40 rounded-full bg-primary/30 blur-[60px]" />
           <div className="pt-safe absolute inset-x-0 top-0 p-5"><KayarLogo className="text-lg" /></div>
@@ -75,12 +76,12 @@ export function Login() {
         <div className="relative -mt-16 flex flex-1 flex-col justify-center px-5 pb-[calc(24px+var(--safe-b))] lg:mt-0 lg:px-16">
           <div className="mx-auto w-full max-w-md">
             <div className="hidden lg:block"><KayarLogo className="mb-10 text-xl" /></div>
-            <h1 className="text-[clamp(1.75rem,6vw,2.5rem)] font-black leading-tight">خوش اومدی! <span className="text-primary">موزیک و برنامه‌ات منتظرته</span></h1>
+            <h1 className="text-[clamp(1.75rem,6vw,2.5rem)] font-black leading-tight">خوش اومدی! <span className="text-primary">موزیک، برنامه‌ی تمرینی و رژیم غذاییت منتظرته</span></h1>
             <p className="mt-2 text-muted-foreground">با نام کاربری و رمزی که از فروشگاه گرفتی وارد شو.</p>
             <form onSubmit={submit} className="mt-7 space-y-4" noValidate>
               <FloatInput id="username" label="نام کاربری (یا شماره موبایل)" value={u} onChange={setU} autoComplete="username" dir="ltr" autoFocus={!touch} />
               <PasswordField id="password" label="رمز عبور" value={p} onChange={setP} autoComplete="current-password" />
-              {err && <div role="alert" className="rounded-2xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">{err}</div>}
+              <ErrorNotice err={err} onClose={() => setErr(undefined)} />
               <div className="sticky z-10 pt-1 transition-[bottom]" style={{ bottom: kb ? kb + 8 : 0 }}>
                 <KButton type="submit" size="lg" loading={loading} className="w-full">ورود <ArrowLeft className="h-5 w-5" /></KButton>
               </div>
@@ -141,7 +142,7 @@ export function ChangePassword() {
               <PasswordField id="new2" label="تکرار رمز جدید" value={pw2} onChange={setPw2} autoComplete="new-password" error={pw2 && pw !== pw2 ? 'تکرار رمز یکسان نیست.' : undefined} />
             </div>
             {pw && pw === cur && <p className="mt-3 text-sm text-destructive">رمز جدید نباید با رمز فعلی یکی باشد.</p>}
-            {err && <div role="alert" className="mt-4 rounded-2xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">{err}</div>}
+            <ErrorNotice err={err} onClose={() => setErr(undefined)} className="mt-4" />
             <KButton type="submit" size="lg" className="mt-6 w-full" disabled={!valid} loading={loading}>ذخیره و ادامه</KButton>
           </motion.form>
         )}

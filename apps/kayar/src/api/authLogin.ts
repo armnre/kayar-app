@@ -14,7 +14,7 @@ async function bootstrap() {
   if (!u || !p) return;
   const existing = await zite.members.findOne({ filters: { role: 'superadmin' } });
   if (existing) return;
-  const m = await zite.members.create({ record: { username: normalizeUsername(u), displayName: 'مدیر ارشد', role: 'superadmin', status: 'active', passwordHash: await hashPassword(p), mustChangePassword: true, createdBy: 'bootstrap' } });
+  const m = await zite.members.create({ record: { username: normalizeUsername(u), displayName: 'مدیر ارشد', role: 'superadmin', status: 'active', passwordHash: await hashPassword(p), mustChangePassword: false, createdBy: 'bootstrap' } });
   await audit(null, 'bootstrap.superadmin', 'member', m.id);
 }
 

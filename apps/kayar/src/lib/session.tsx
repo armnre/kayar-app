@@ -26,9 +26,19 @@ export function readToken(scope: Scope) {
 }
 const clear = (scope: Scope) => localStorage.removeItem(KEY(scope));
 
+/** Turns any thrown error into a friendly Persian message — never shows raw technical text. */
 export function errMsg(e: unknown) {
-  const x = e as { userFacingMessage?: string; message?: string };
-  return (x?.userFacingMessage || x?.message || 'خطایی رخ داد؛ دوباره تلاش کن.').replace(/^PASSWORD_CHANGE_REQUIRED:\s*/, '');
+  const x = e as { userFacingMessage?: string; message?: string; status?: number };
+  if (typeof navigator !== 'undefined' && !navigator.onLine) return 'اینترنتت قطعه؛ اتصال رو چک کن و دوباره امتحان کن.';
+  const raw = (x?.userFacingMessage || x?.message || '').replace(/^PASSWORD_CHANGE_REQUIRED:\s*/, '').trim();
+  if (/failed to fetch|networkerror|load failed|network/i.test(raw)) return 'ارتباط با سرور برقرار نشد؛ چند لحظه بعد دوباره امتحان کن.';
+  if (/timeout|timed out/i.test(raw)) return 'پاسخ سرور طول کشید؛ دوباره تلاش کن.';
+  if (/429|too many|rate/i.test(raw)) return 'تعداد تلاش‌ها زیاد بود؛ کمی صبر کن و دوباره امتحان کن.';
+  if (/401|unauthori[sz]ed|session|expired/i.test(raw) && !/[\u0600-\u06FF]/.test(raw)) return 'نشستت تموم شده؛ لطفاً دوباره وارد شو.';
+  if (/403|forbidden/i.test(raw) && !/[\u0600-\u06FF]/.test(raw)) return 'اجازه‌ی انجام این کار رو نداری.';
+  // Only show server text if it's already a human Persian message
+  if (raw && /[\u0600-\u06FF]/.test(raw) && raw.length < 220) return raw;
+  return 'یه مشکلی پیش اومد؛ دوباره تلاش کن. اگه تکرار شد با پشتیبانی تماس بگیر.';
 }
 export const isPwChange = (e: unknown) => /PASSWORD_CHANGE_REQUIRED/.test(String((e as { message?: string })?.message) + String((e as { userFacingMessage?: string })?.userFacingMessage));
 

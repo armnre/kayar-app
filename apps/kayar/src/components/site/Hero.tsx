@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Headphones, Dumbbell, Bot, Utensils, AudioWaveform, ArrowLeft, Play, Sparkles } from 'lucide-react';
-import { KButton, Glass, Waveform, ProgressRing, SampleBadge, Cover } from '../kit';
+import { KButton, Glass, Waveform, ProgressRing, Cover } from '../kit';
 import { fa } from '../../lib/config';
 
 const orbs = [
@@ -46,18 +46,23 @@ function Scene() {
         <div className="shine absolute inset-0" />
       </div>
       <div className="absolute left-1/2 top-[48%] aspect-square w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-primary/30 animate-spin-slow" aria-hidden />
-      <img src="https://images.fillout.com/888622/bvjezbu9kd/generated-images/m7CVfYZ1XxoDXoHHPmRnjU/img_6hSskSlC6BwCKZ21.jpg" alt="ورزشکار با هدفون و گوشی" width={1056} height={1408} fetchPriority="high"
+      <img src="https://images.fillout.com/888646/9une2mcrla/generated-images/wTN6aHbd87EUvo7p42wpBm/img_cJ6XDK12iHGbiv-o.jpg" alt="ورزشکار با هدفون و گوشی" width={1056} height={1408} fetchPriority="high"
         className="absolute bottom-0 left-1/2 z-20 h-[104%] w-auto max-w-none -translate-x-1/2 object-contain"
         style={{ maskImage: 'radial-gradient(ellipse 50% 62% at 50% 44%, black 58%, transparent 100%)', WebkitMaskImage: 'radial-gradient(ellipse 50% 62% at 50% 44%, black 58%, transparent 100%)' }} />
       <Orbit />
       <div aria-hidden className="pointer-events-none">
-        <Glass className="animate-float absolute end-[-2%] top-[8%] z-30 hidden w-52 p-3 sm:block">
-          <div className="mb-2 flex items-center justify-between text-xs text-muted-foreground"><span>مرشد در حال پخش</span><SampleBadge /></div>
-          <div className="flex items-center gap-3"><Cover hue={254} className="h-11 w-11 shrink-0"><Play className="absolute inset-0 m-auto h-4 w-4 fill-white text-white" /></Cover><div className="min-w-0"><div className="truncate text-sm font-bold">ضربان شهر</div><Waveform bars={14} className="h-5" color="bg-[hsl(254_100%_75%)]" /></div></div>
-        </Glass>
-        <Glass className="animate-float absolute bottom-[10%] start-[-4%] z-30 hidden w-48 p-3 [animation-delay:1.5s] sm:block">
-          <div className="mb-2 flex items-center justify-between text-xs text-muted-foreground"><span>برنامه‌ی امروز</span><SampleBadge /></div>
-          <div className="flex items-center gap-3"><ProgressRing value={68} size={52} stroke={5}><span className="text-xs font-bold">{fa(68)}٪</span></ProgressRing><div className="text-sm leading-6"><div className="font-bold">تمرین قدرتی</div><div className="text-muted-foreground">{fa(4)} از {fa(6)} حرکت</div></div></div>
+        <Glass className="animate-float absolute end-[-2%] top-[8%] z-30 hidden w-60 overflow-hidden p-3.5 shadow-[0_20px_60px_-20px_hsl(254_100%_60%/.6)] ring-1 ring-[hsl(254_100%_75%/.35)] sm:block">
+          <div className="pointer-events-none absolute -end-8 -top-8 h-24 w-24 rounded-full bg-[hsl(254_100%_70%/.35)] blur-2xl" />
+          <div className="relative mb-2.5 flex items-center justify-between text-[11px] text-muted-foreground">
+            <span className="flex items-center gap-1.5 font-bold text-[hsl(254_100%_80%)]"><span className="relative flex h-2 w-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(254_100%_75%)] opacity-75" /><span className="relative inline-flex h-2 w-2 rounded-full bg-[hsl(254_100%_75%)]" /></span>مرشد در حال پخش</span>
+            <span className="rounded-full bg-white/10 px-2 py-0.5 font-latin">{fa(128)} BPM</span>
+          </div>
+          <div className="relative flex items-center gap-3">
+            <Cover hue={254} className="h-12 w-12 shrink-0 animate-spin-slow rounded-full"><Play className="absolute inset-0 m-auto h-4 w-4 fill-white text-white" /></Cover>
+            <div className="min-w-0 flex-1"><div className="truncate text-sm font-black">ضربان شهر</div><div className="truncate text-[11px] text-muted-foreground">پلی‌لیست قدرتی</div><Waveform bars={18} className="mt-1 h-5" color="bg-[hsl(254_100%_75%)]" /></div>
+          </div>
+          <div className="relative mt-2.5 h-1 overflow-hidden rounded-full bg-white/10"><div className="h-full w-[42%] rounded-full bg-gradient-to-l from-[hsl(254_100%_75%)] to-primary" /></div>
+          <div className="relative mt-1 flex justify-between font-latin text-[10px] text-muted-foreground"><span>1:24</span><span>3:18</span></div>
         </Glass>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { NavLink, Outlet, Navigate, useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Headphones, Sparkles, User, Play, Pause, SkipForward, SkipBack, ChevronDown, Timer, Heart, Bell } from 'lucide-react';
+import { Home, Headphones, Sparkles, User, Play, Pause, SkipForward, SkipBack, ChevronDown, Timer, Heart, Bell, X } from 'lucide-react';
 import { cn } from '@project/components/lib/utils';
 import { KayarLogo, Cover, Waveform, SampleBadge } from '../kit';
 import { usePreview } from '../../lib/preview';
@@ -23,25 +23,26 @@ export function PreviewBanner() {
 }
 
 function useTicker() {
-  const { playing, track, progress, setProgress, next } = usePreview();
+  const { playing, track, progress, setProgress, next, real } = usePreview();
   useEffect(() => {
-    if (!playing || !track) return;
+    if (!playing || !track || real) return;
     const t = setInterval(() => { if (progress + 1 >= track.duration) next(); else setProgress(progress + 1); }, 1000);
     return () => clearInterval(t);
-  }, [playing, track, progress, setProgress, next]);
+  }, [playing, track, progress, setProgress, next, real]);
 }
 
 function MiniPlayer() {
-  const { track, playing, toggle, next, progress, setFullPlayer } = usePreview();
+  const { track, playing, toggle, next, stop, progress, setFullPlayer } = usePreview();
   if (!track) return null;
   return (
-    <div className="glass mx-3 flex items-center gap-3 overflow-hidden rounded-2xl p-2 pe-1 shadow-lg lg:mx-0">
+    <div className="relative mx-3 flex items-center gap-2 overflow-hidden rounded-2xl border border-border bg-card p-2 pe-1 shadow-lg lg:mx-0">
       <button className="flex min-w-0 flex-1 items-center gap-3 text-start" onClick={() => setFullPlayer(true)} aria-label="باز کردن پلیر">
-        <Cover hue={track.hue} className="h-11 w-11 shrink-0 rounded-xl" />
+        <Cover hue={track.hue} image={track.image} className="h-11 w-11 shrink-0 rounded-xl" />
         <div className="min-w-0"><div className="truncate text-sm font-bold">{track.title}</div><div className="truncate text-xs text-muted-foreground">{track.artist}</div></div>
       </button>
       <button className="tap grid place-items-center rounded-full" onClick={toggle} aria-label={playing ? 'توقف' : 'پخش'}>{playing ? <Pause className="h-5 w-5 fill-current" /> : <Play className="h-5 w-5 fill-current" />}</button>
       <button className="tap grid place-items-center rounded-full" onClick={() => next()} aria-label="بعدی"><SkipForward className="h-5 w-5 -scale-x-100 fill-current" /></button>
+      <button className="tap grid place-items-center rounded-full text-muted-foreground hover:text-foreground" onClick={stop} aria-label="بستن پلیر"><X className="h-5 w-5" /></button>
       <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white/10"><span className="block h-full bg-violet" style={{ width: `${(progress / track.duration) * 100}%` }} /></span>
     </div>
   );
@@ -60,7 +61,7 @@ function FullPlayer() {
             <span className="text-sm text-muted-foreground">در حال پخش</span><SampleBadge />
           </div>
           <div className="mx-auto mt-6 flex w-full max-w-md flex-1 flex-col justify-center">
-            <Cover hue={track.hue} className="aspect-square w-full rounded-[32px] shadow-xl" />
+            <Cover hue={track.hue} image={track.image} className="aspect-square w-full rounded-[32px] shadow-xl" />
             <div className="mt-6 flex items-center gap-3">
               <div className="min-w-0 flex-1"><h2 className="truncate text-2xl font-black">{track.title}</h2><p className="truncate text-muted-foreground">{track.artist} · مجوز {track.license}</p></div>
               <button className="tap grid place-items-center rounded-full" onClick={() => toggleFav(track.id)} aria-label="علاقه‌مندی" aria-pressed={favs.has(track.id)}><Heart className={cn('h-6 w-6', favs.has(track.id) && 'fill-violet text-violet')} /></button>
@@ -101,7 +102,7 @@ export default function AppShell() {
           <div className="mt-auto"><MiniPlayer /></div>
         </aside>
         <div className="min-w-0">
-          <header className="glass sticky top-7 z-30 flex h-[var(--header-h)] items-center justify-between rounded-none border-x-0 border-t-0 px-4 lg:hidden">
+          <header className="sticky top-7 z-30 flex h-[var(--header-h)] items-center justify-between border-b border-border bg-background px-4 lg:hidden">
             <KayarLogo className="text-base" />
             <Link to="/app/profile" className="tap grid place-items-center rounded-full" aria-label="اعلان‌ها"><Bell className="h-5 w-5" /></Link>
           </header>
@@ -112,11 +113,11 @@ export default function AppShell() {
       </div>
       <div className="fixed inset-x-0 bottom-0 z-40 lg:hidden">
         <div className="mb-2"><MiniPlayer /></div>
-        <nav className="glass relative grid h-[calc(var(--nav-h)+var(--safe-b))] grid-cols-4 rounded-none border-x-0 border-b-0 pb-[var(--safe-b)]" aria-label="ناوبری اصلی">
+        <nav className="relative grid border-t border-border bg-background shadow-[0_-8px_24px_rgb(0_0_0/.35)] h-[calc(var(--nav-h)+var(--safe-b))] grid-cols-4 rounded-none border-x-0 border-b-0 pb-[var(--safe-b)]" aria-label="ناوبری اصلی">
           {activeIdx >= 0 && !nav[activeIdx].center && <span className="absolute top-0 h-0.5 w-1/4 rounded-full bg-primary glow transition-transform duration-300" style={{ insetInlineStart: 0, transform: `translateX(${-activeIdx * 100}%)` }} />}
           {nav.map((n) => (
             <NavLink key={n.to} to={n.to} end={n.end} className={({ isActive }) => cn('flex flex-col items-center justify-center gap-0.5 text-xs font-bold', isActive ? 'text-primary' : 'text-muted-foreground')}>
-              {n.center ? <span className="-mt-7 grid h-14 w-14 place-items-center rounded-2xl bg-primary text-primary-foreground animate-pulse-glow"><n.icon className="h-6 w-6" /></span> : <n.icon className="h-6 w-6" />}
+              {n.center ? <span className="-mt-7 grid h-14 w-14 place-items-center rounded-2xl bg-primary text-primary-foreground animate-pulse-glow"><n.icon className="h-6 w-6" /></span> : n.to === '/app/profile' ? <img src="https://images.fillout.com/888646/9une2mcrla/generated-images/1AYCmkbto97oCLAux2rFhL/img_y1IiOTgydEJdHU8s.jpg" alt="" className="h-6 w-6 rounded-full object-cover ring-1 ring-current" /> : <n.icon className="h-6 w-6" />}
               {n.label}
             </NavLink>
           ))}

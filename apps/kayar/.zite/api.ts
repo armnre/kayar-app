@@ -14,7 +14,9 @@ import type { default as _AuthLoginEp } from '../src/api/authLogin';
 import type { default as _AuthLogoutEp } from '../src/api/authLogout';
 import type { default as _AuthMeEp } from '../src/api/authMe';
 import type { default as _AuthSessionsEp } from '../src/api/authSessions';
+import type { default as _BodyyarAiEp } from '../src/api/bodyyarAi';
 import type { default as _KapooshProductsEp } from '../src/api/kapooshProducts';
+import type { default as _MorshedTracksEp } from '../src/api/morshedTracks';
 import type { default as _PublicSettingsEp } from '../src/api/publicSettings';
 
 type _AdminAuditCfg = typeof _AdminAuditEp;
@@ -77,10 +79,20 @@ export type AuthSessionsInputType = NonNullable<_AuthSessionsCfg['inputSchema']>
 export type AuthSessionsOutputType = Awaited<ReturnType<_AuthSessionsCfg['execute']>>;
 export const authSessions = createCaller<AuthSessionsInputType, AuthSessionsOutputType>('authSessions');
 
+type _BodyyarAiCfg = typeof _BodyyarAiEp;
+export type BodyyarAiInputType = NonNullable<_BodyyarAiCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_BodyyarAiCfg['execute']>[0]['input'];
+export type BodyyarAiOutputType = Awaited<ReturnType<_BodyyarAiCfg['execute']>>;
+export const bodyyarAi = createCaller<BodyyarAiInputType, BodyyarAiOutputType>('bodyyarAi');
+
 type _KapooshProductsCfg = typeof _KapooshProductsEp;
 export type KapooshProductsInputType = NonNullable<_KapooshProductsCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_KapooshProductsCfg['execute']>[0]['input'];
 export type KapooshProductsOutputType = Awaited<ReturnType<_KapooshProductsCfg['execute']>>;
 export const kapooshProducts = createCaller<KapooshProductsInputType, KapooshProductsOutputType>('kapooshProducts');
+
+type _MorshedTracksCfg = typeof _MorshedTracksEp;
+export type MorshedTracksInputType = NonNullable<_MorshedTracksCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_MorshedTracksCfg['execute']>[0]['input'];
+export type MorshedTracksOutputType = Awaited<ReturnType<_MorshedTracksCfg['execute']>>;
+export const morshedTracks = createCaller<MorshedTracksInputType, MorshedTracksOutputType>('morshedTracks');
 
 type _PublicSettingsCfg = typeof _PublicSettingsEp;
 export type PublicSettingsInputType = NonNullable<_PublicSettingsCfg['inputSchema']> extends { _input: infer I } ? I : Parameters<_PublicSettingsCfg['execute']>[0]['input'];
@@ -101,6 +113,8 @@ export const api = {
   authLogout,
   authMe,
   authSessions,
+  bodyyarAi,
   kapooshProducts,
+  morshedTracks,
   publicSettings,
 };

@@ -114,6 +114,7 @@ declare global {
       "ZITE_APP_URL": string;
       "ZITE_BOOTSTRAP_ADMIN_PASSWORD": string;
       "ZITE_BOOTSTRAP_ADMIN_USERNAME": string;
+      "ZITE_JAMENDO_CLIENT_ID": string;
     }
   }
 }

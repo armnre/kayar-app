@@ -11,6 +11,8 @@ declare namespace NodeJS {
     ZITE_BOOTSTRAP_ADMIN_PASSWORD: string;
     /** نام کاربری اولین مدیر ارشد پنل کایار */
     ZITE_BOOTSTRAP_ADMIN_USERNAME: string;
+    /** Client ID از developer.jamendo.com برای پخش موزیک ورزشی در مرشد */
+    ZITE_JAMENDO_CLIENT_ID: string;
     [key: string]: string | undefined;
   }
 }

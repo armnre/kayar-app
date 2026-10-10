@@ -1,13 +1,13 @@
 {
   "tables": [
     {
-      "id": "ttDjhxswBfW",
+      "id": "tdMbL5tUEd7",
       "sdkName": "members",
       "name": "Members",
-      "primaryFieldId": "fhYzBXizkZC",
+      "primaryFieldId": "fqHsUQJUKms",
       "fields": [
         {
-          "id": "fhYzBXizkZC",
+          "id": "fqHsUQJUKms",
           "sdkName": "username",
           "definition": {
             "name": "Username",
@@ -16,7 +16,7 @@
           }
         },
         {
-          "id": "fq7Siov3hyU",
+          "id": "f74LfEdtJxL",
           "sdkName": "phone",
           "definition": {
             "name": "Phone",
@@ -25,7 +25,7 @@
           }
         },
         {
-          "id": "fcikiBgc3Wm",
+          "id": "f3H9ycFDrUq",
           "sdkName": "displayName",
           "definition": {
             "name": "Display Name",
@@ -34,7 +34,7 @@
           }
         },
         {
-          "id": "fpqTaGnFLA8",
+          "id": "fmwPGzgxU7Z",
           "sdkName": "role",
           "definition": {
             "name": "Role",
@@ -42,32 +42,32 @@
             "template": {
               "options": [
                 {
-                  "value": "wdrf",
+                  "value": "gJdS",
                   "label": "member",
                   "color": "purple"
                 },
                 {
-                  "value": "fVv2",
+                  "value": "pFam",
                   "label": "coach",
                   "color": "orange"
                 },
                 {
-                  "value": "6R2D",
+                  "value": "kVjJ",
                   "label": "support",
                   "color": "blue"
                 },
                 {
-                  "value": "uiWa",
+                  "value": "5KcU",
                   "label": "editor",
                   "color": "gray"
                 },
                 {
-                  "value": "c8QB",
+                  "value": "47w5",
                   "label": "admin",
                   "color": "red"
                 },
                 {
-                  "value": "rECy",
+                  "value": "aCVw",
                   "label": "superadmin",
                   "color": "yellow"
                 }
@@ -77,7 +77,7 @@
           }
         },
         {
-          "id": "fb8Tna7rBaX",
+          "id": "fe1AJ6nAxFp",
           "sdkName": "status",
           "definition": {
             "name": "Status",
@@ -85,17 +85,17 @@
             "template": {
               "options": [
                 {
-                  "value": "xq3t",
+                  "value": "1wF6",
                   "label": "active",
                   "color": "purple"
                 },
                 {
-                  "value": "hRWD",
+                  "value": "oZ21",
                   "label": "suspended",
                   "color": "orange"
                 },
                 {
-                  "value": "e8BU",
+                  "value": "tKg8",
                   "label": "deleted",
                   "color": "blue"
                 }
@@ -105,7 +105,7 @@
           }
         },
         {
-          "id": "f7YdGr4ygTv",
+          "id": "f2cGaWZ1xWf",
           "sdkName": "passwordHash",
           "definition": {
             "name": "Password Hash",
@@ -114,7 +114,7 @@
           }
         },
         {
-          "id": "fn8haEViF1v",
+          "id": "fmyadvrCgqd",
           "sdkName": "mustChangePassword",
           "definition": {
             "name": "Must Change Password",
@@ -123,7 +123,7 @@
           }
         },
         {
-          "id": "fxbNaBcTHTq",
+          "id": "fajazWgJwkD",
           "sdkName": "passwordChangedAt",
           "definition": {
             "name": "Password Changed At",
@@ -137,7 +137,7 @@
           }
         },
         {
-          "id": "f4Bg7iKtGsr",
+          "id": "fi9pby5TpYh",
           "sdkName": "lastLoginAt",
           "definition": {
             "name": "Last Login At",
@@ -151,7 +151,7 @@
           }
         },
         {
-          "id": "ftXPzE28CGz",
+          "id": "fqVVowBH5zj",
           "sdkName": "orderRef",
           "definition": {
             "name": "Order Ref",
@@ -160,7 +160,7 @@
           }
         },
         {
-          "id": "fkZBxZuiQAU",
+          "id": "fwxcRXqLa8C",
           "sdkName": "note",
           "definition": {
             "name": "Note",
@@ -169,7 +169,7 @@
           }
         },
         {
-          "id": "f4XGcG3w3q3",
+          "id": "fgmegJzVrcx",
           "sdkName": "createdBy",
           "definition": {
             "name": "Created By",
@@ -178,7 +178,7 @@
           }
         },
         {
-          "id": "foVZbDsad3v",
+          "id": "fqcovju9TTq",
           "sdkName": "tags",
           "definition": {
             "name": "Tags",
@@ -186,7 +186,7 @@
             "template": {
               "options": [
                 {
-                  "value": "fmzu",
+                  "value": "o24n",
                   "label": "vip",
                   "color": "purple"
                 }
@@ -196,7 +196,7 @@
           }
         },
         {
-          "id": "f5m5n1Dpcor",
+          "id": "fb4YSn7XFZ1",
           "sdkName": "createdAt",
           "definition": {
             "name": "Created At",
@@ -212,13 +212,13 @@
       ]
     },
     {
-      "id": "t9FAdKRpM5C",
+      "id": "taHEmSs8wDj",
       "sdkName": "sessions",
       "name": "Sessions",
-      "primaryFieldId": "frqpJqt4ons",
+      "primaryFieldId": "fdpTuKVX5ZY",
       "fields": [
         {
-          "id": "frqpJqt4ons",
+          "id": "fdpTuKVX5ZY",
           "sdkName": "tokenHash",
           "definition": {
             "name": "Token Hash",
@@ -227,7 +227,7 @@
           }
         },
         {
-          "id": "fmuFmAHp1j5",
+          "id": "fsUZrXT84s2",
           "sdkName": "memberId",
           "definition": {
             "name": "Member Id",
@@ -236,7 +236,7 @@
           }
         },
         {
-          "id": "fwaqLLr4HQ8",
+          "id": "fux4gq6Chxs",
           "sdkName": "userAgent",
           "definition": {
             "name": "User Agent",
@@ -245,7 +245,7 @@
           }
         },
         {
-          "id": "f7yeG8wHuzB",
+          "id": "fi9mo72xMi1",
           "sdkName": "createdAt",
           "definition": {
             "name": "Created At",
@@ -259,7 +259,7 @@
           }
         },
         {
-          "id": "fi7heJwWjbv",
+          "id": "fdvkoKCMiaR",
           "sdkName": "lastSeenAt",
           "definition": {
             "name": "Last Seen At",
@@ -273,7 +273,7 @@
           }
         },
         {
-          "id": "fjcefre44Fb",
+          "id": "fcWsvsMswt8",
           "sdkName": "expiresAt",
           "definition": {
             "name": "Expires At",
@@ -287,7 +287,7 @@
           }
         },
         {
-          "id": "fuDP9Yg8vq1",
+          "id": "f4d7eAZVSar",
           "sdkName": "revokedAt",
           "definition": {
             "name": "Revoked At",
@@ -303,13 +303,13 @@
       ]
     },
     {
-      "id": "ttJR9JnzxRW",
+      "id": "t374jQ8r3zL",
       "sdkName": "loginAttempts",
       "name": "Login Attempts",
-      "primaryFieldId": "fhNTKt1wuH4",
+      "primaryFieldId": "foaNrc9YUey",
       "fields": [
         {
-          "id": "fhNTKt1wuH4",
+          "id": "foaNrc9YUey",
           "sdkName": "key",
           "definition": {
             "name": "Key",
@@ -318,7 +318,7 @@
           }
         },
         {
-          "id": "fv5mmQjBZw3",
+          "id": "f2b4NfUwgxj",
           "sdkName": "count",
           "definition": {
             "name": "Count",
@@ -330,7 +330,7 @@
           }
         },
         {
-          "id": "ftg5oF92jHJ",
+          "id": "fucEcBLaHaU",
           "sdkName": "windowStart",
           "definition": {
             "name": "Window Start",
@@ -344,7 +344,7 @@
           }
         },
         {
-          "id": "fs7QDXPVwMN",
+          "id": "f2wpEWzH2Xa",
           "sdkName": "lockedUntil",
           "definition": {
             "name": "Locked Until",
@@ -360,13 +360,13 @@
       ]
     },
     {
-      "id": "tkqdv32DAzU",
+      "id": "tbzzVw92LHU",
       "sdkName": "auditLogs",
       "name": "Audit Logs",
-      "primaryFieldId": "fuCmtQ3A6Up",
+      "primaryFieldId": "fcUcXJPUfe8",
       "fields": [
         {
-          "id": "fuCmtQ3A6Up",
+          "id": "fcUcXJPUfe8",
           "sdkName": "action",
           "definition": {
             "name": "Action",
@@ -375,7 +375,7 @@
           }
         },
         {
-          "id": "fwyJUnGwF6A",
+          "id": "ffQ1dHmvpPN",
           "sdkName": "actorId",
           "definition": {
             "name": "Actor Id",
@@ -384,7 +384,7 @@
           }
         },
         {
-          "id": "f1CWmXfn4yF",
+          "id": "feuYJ2iHcqr",
           "sdkName": "targetType",
           "definition": {
             "name": "Target Type",
@@ -393,7 +393,7 @@
           }
         },
         {
-          "id": "feM33u3FVFn",
+          "id": "fniGKsAcr64",
           "sdkName": "targetId",
           "definition": {
             "name": "Target Id",
@@ -402,7 +402,7 @@
           }
         },
         {
-          "id": "fi7jTZ3R3Jd",
+          "id": "f5texNP6AHr",
           "sdkName": "meta",
           "definition": {
             "name": "Meta",
@@ -411,7 +411,7 @@
           }
         },
         {
-          "id": "fmFKSjhvebQ",
+          "id": "f3v34k6pXbL",
           "sdkName": "createdAt",
           "definition": {
             "name": "Created At",
@@ -427,13 +427,13 @@
       ]
     },
     {
-      "id": "t91Mnd7Dstp",
+      "id": "tpbfsJDjhVP",
       "sdkName": "siteSettings",
       "name": "Site Settings",
-      "primaryFieldId": "fpALi5JDbzx",
+      "primaryFieldId": "fimmNXr1FTY",
       "fields": [
         {
-          "id": "fpALi5JDbzx",
+          "id": "fimmNXr1FTY",
           "sdkName": "key",
           "definition": {
             "name": "Key",
@@ -442,7 +442,7 @@
           }
         },
         {
-          "id": "fmKWGZ2TkLH",
+          "id": "fwvZtdRmNp2",
           "sdkName": "value",
           "definition": {
             "name": "Value",
@@ -451,7 +451,7 @@
           }
         },
         {
-          "id": "fss8otcKYf6",
+          "id": "f6V83MiJo1P",
           "sdkName": "updatedAt",
           "definition": {
             "name": "Updated At",
@@ -467,13 +467,13 @@
       ]
     },
     {
-      "id": "teE8XB8fUrr",
+      "id": "t7BkJ9Bh9d2",
       "sdkName": "cmsBlocks",
       "name": "Cms Blocks",
-      "primaryFieldId": "fhfqWTh2G2p",
+      "primaryFieldId": "f3PRR5buj1C",
       "fields": [
         {
-          "id": "fhfqWTh2G2p",
+          "id": "f3PRR5buj1C",
           "sdkName": "key",
           "definition": {
             "name": "Key",
@@ -482,7 +482,7 @@
           }
         },
         {
-          "id": "f2dHiWJxLZ7",
+          "id": "f1DXovxwCtD",
           "sdkName": "content",
           "definition": {
             "name": "Content",
@@ -491,7 +491,7 @@
           }
         },
         {
-          "id": "f8sWDk2WCDc",
+          "id": "fdcQ7WVYwce",
           "sdkName": "status",
           "definition": {
             "name": "Status",
@@ -499,12 +499,12 @@
             "template": {
               "options": [
                 {
-                  "value": "as5n",
+                  "value": "ksNr",
                   "label": "draft",
                   "color": "purple"
                 },
                 {
-                  "value": "auj9",
+                  "value": "2Pb4",
                   "label": "published",
                   "color": "orange"
                 }
@@ -514,7 +514,7 @@
           }
         },
         {
-          "id": "fvkXMaufNwS",
+          "id": "feJaQS6jrER",
           "sdkName": "publishedContent",
           "definition": {
             "name": "Published Content",
@@ -523,7 +523,7 @@
           }
         },
         {
-          "id": "fsxmZfduwor",
+          "id": "fmj4Fp2RawQ",
           "sdkName": "version",
           "definition": {
             "name": "Version",
@@ -535,7 +535,7 @@
           }
         },
         {
-          "id": "fwWL34zjgHN",
+          "id": "foWwBWwpPDh",
           "sdkName": "updatedBy",
           "definition": {
             "name": "Updated By",
@@ -544,7 +544,7 @@
           }
         },
         {
-          "id": "f8oagNQA44d",
+          "id": "f8R3PKqwkHR",
           "sdkName": "updatedAt",
           "definition": {
             "name": "Updated At",
@@ -560,13 +560,13 @@
       ]
     },
     {
-      "id": "tkx1Htmu8fp",
+      "id": "t8kPCo7Webx",
       "sdkName": "cmsBlockVersions",
       "name": "Cms Block Versions",
-      "primaryFieldId": "fjMgp5ntYzq",
+      "primaryFieldId": "f8hS8SLMTXM",
       "fields": [
         {
-          "id": "fjMgp5ntYzq",
+          "id": "f8hS8SLMTXM",
           "sdkName": "blockKey",
           "definition": {
             "name": "Block Key",
@@ -575,7 +575,7 @@
           }
         },
         {
-          "id": "ftDET2LqrHw",
+          "id": "fcUAJmdcFVm",
           "sdkName": "version",
           "definition": {
             "name": "Version",
@@ -587,7 +587,7 @@
           }
         },
         {
-          "id": "f8hbGtzqmuS",
+          "id": "fp44re7kSb2",
           "sdkName": "content",
           "definition": {
             "name": "Content",
@@ -596,7 +596,7 @@
           }
         },
         {
-          "id": "fbyHqRV2tsJ",
+          "id": "fjFDjPnRcx2",
           "sdkName": "savedBy",
           "definition": {
             "name": "Saved By",
@@ -605,7 +605,7 @@
           }
         },
         {
-          "id": "ffg4dT6gE51",
+          "id": "fmxKebq7qMQ",
           "sdkName": "createdAt",
           "definition": {
             "name": "Created At",
@@ -621,13 +621,13 @@
       ]
     },
     {
-      "id": "tbQ1kaDS7K6",
+      "id": "t35H7Zx3KTz",
       "sdkName": "posts",
       "name": "Posts",
-      "primaryFieldId": "ffRhYA4SK8Q",
+      "primaryFieldId": "faNpiQsuvtu",
       "fields": [
         {
-          "id": "ffRhYA4SK8Q",
+          "id": "faNpiQsuvtu",
           "sdkName": "title",
           "definition": {
             "name": "Title",
@@ -636,7 +636,7 @@
           }
         },
         {
-          "id": "f4ReomL9WLs",
+          "id": "fanc7MkA1Pb",
           "sdkName": "slug",
           "definition": {
             "name": "Slug",
@@ -645,7 +645,7 @@
           }
         },
         {
-          "id": "f94tR7f3J8L",
+          "id": "fvu2ci1Ljy7",
           "sdkName": "excerpt",
           "definition": {
             "name": "Excerpt",
@@ -654,7 +654,7 @@
           }
         },
         {
-          "id": "fmYq4FzwvBj",
+          "id": "f4mhUh39BET",
           "sdkName": "body",
           "definition": {
             "name": "Body",
@@ -663,7 +663,7 @@
           }
         },
         {
-          "id": "f3J72P8HGos",
+          "id": "frjghJg9N8x",
           "sdkName": "coverMediaId",
           "definition": {
             "name": "Cover Media Id",
@@ -672,7 +672,7 @@
           }
         },
         {
-          "id": "fdLiZ8RWmGv",
+          "id": "f9ug6iHjm3j",
           "sdkName": "tags",
           "definition": {
             "name": "Tags",
@@ -681,7 +681,7 @@
           }
         },
         {
-          "id": "foVxVGe348e",
+          "id": "fbYctkUfTjz",
           "sdkName": "status",
           "definition": {
             "name": "Status",
@@ -689,22 +689,22 @@
             "template": {
               "options": [
                 {
-                  "value": "aHPj",
+                  "value": "77vq",
                   "label": "draft",
                   "color": "purple"
                 },
                 {
-                  "value": "s4kQ",
+                  "value": "ksR9",
                   "label": "published",
                   "color": "orange"
                 },
                 {
-                  "value": "vWmj",
+                  "value": "gFxh",
                   "label": "archived",
                   "color": "blue"
                 },
                 {
-                  "value": "mU7N",
+                  "value": "ihvf",
                   "label": "deleted",
                   "color": "gray"
                 }
@@ -714,7 +714,7 @@
           }
         },
         {
-          "id": "fru1Y2oWz6T",
+          "id": "f9DD9AKbCsc",
           "sdkName": "publishedAt",
           "definition": {
             "name": "Published At",
@@ -728,7 +728,7 @@
           }
         },
         {
-          "id": "ftcwgQJPDax",
+          "id": "fk5CLX6M2q6",
           "sdkName": "seoTitle",
           "definition": {
             "name": "Seo Title",
@@ -737,7 +737,7 @@
           }
         },
         {
-          "id": "f7t8GMxqHkW",
+          "id": "fcGtZKCiKZf",
           "sdkName": "seoDescription",
           "definition": {
             "name": "Seo Description",
@@ -746,7 +746,7 @@
           }
         },
         {
-          "id": "fmeLTGcZvAU",
+          "id": "fsTgSaCbncN",
           "sdkName": "authorId",
           "definition": {
             "name": "Author Id",
@@ -755,7 +755,7 @@
           }
         },
         {
-          "id": "fak4rFikvHy",
+          "id": "fdPB9RSZrsV",
           "sdkName": "createdAt",
           "definition": {
             "name": "Created At",
@@ -771,13 +771,13 @@
       ]
     },
     {
-      "id": "tqBP262N5dT",
+      "id": "tqepopPvm2Y",
       "sdkName": "mediaAssets",
       "name": "Media Assets",
-      "primaryFieldId": "fhZABUdTzAr",
+      "primaryFieldId": "fpxewHNAH77",
       "fields": [
         {
-          "id": "fhZABUdTzAr",
+          "id": "fpxewHNAH77",
           "sdkName": "alt",
           "definition": {
             "name": "Alt",
@@ -786,7 +786,7 @@
           }
         },
         {
-          "id": "f1rmA6GQtEa",
+          "id": "fpV9bVPa4ya",
           "sdkName": "fileUrl",
           "definition": {
             "name": "File Url",
@@ -795,7 +795,7 @@
           }
         },
         {
-          "id": "fhsKtqsE9SP",
+          "id": "faCAKdmmKbQ",
           "sdkName": "kind",
           "definition": {
             "name": "Kind",
@@ -804,7 +804,7 @@
           }
         },
         {
-          "id": "f8Wpar4TPam",
+          "id": "f6CJqCtdzVH",
           "sdkName": "width",
           "definition": {
             "name": "Width",
@@ -816,7 +816,7 @@
           }
         },
         {
-          "id": "fbuLJv5Bwzb",
+          "id": "fnshQRGpfWG",
           "sdkName": "height",
           "definition": {
             "name": "Height",
@@ -828,7 +828,7 @@
           }
         },
         {
-          "id": "f9kC8xocqbX",
+          "id": "f7ZDh3HAWqQ",
           "sdkName": "size",
           "definition": {
             "name": "Size",
@@ -840,7 +840,7 @@
           }
         },
         {
-          "id": "f5kp3A2mjNy",
+          "id": "f8rz7dfWbTU",
           "sdkName": "uploadedBy",
           "definition": {
             "name": "Uploaded By",
@@ -849,7 +849,7 @@
           }
         },
         {
-          "id": "foWRrtJshNc",
+          "id": "fiuTn8BEHpo",
           "sdkName": "createdAt",
           "definition": {
             "name": "Created At",
@@ -865,13 +865,13 @@
       ]
     },
     {
-      "id": "tgPNv6HbNHo",
+      "id": "tuYh22WTuqe",
       "sdkName": "tracks",
       "name": "Tracks",
-      "primaryFieldId": "frEgMYQrEPf",
+      "primaryFieldId": "fkHs29EhaEd",
       "fields": [
         {
-          "id": "frEgMYQrEPf",
+          "id": "fkHs29EhaEd",
           "sdkName": "title",
           "definition": {
             "name": "Title",
@@ -880,7 +880,7 @@
           }
         },
         {
-          "id": "f1Xgz9YEM6v",
+          "id": "fbFZfY4e9qR",
           "sdkName": "source",
           "definition": {
             "name": "Source",
@@ -888,17 +888,17 @@
             "template": {
               "options": [
                 {
-                  "value": "nEzz",
+                  "value": "1KcF",
                   "label": "jamendo",
                   "color": "purple"
                 },
                 {
-                  "value": "kobv",
+                  "value": "eM1V",
                   "label": "upload",
                   "color": "orange"
                 },
                 {
-                  "value": "f2aw",
+                  "value": "azXh",
                   "label": "external",
                   "color": "blue"
                 }
@@ -908,7 +908,7 @@
           }
         },
         {
-          "id": "fuTpp2kTc9s",
+          "id": "f8RQ49HDfyo",
           "sdkName": "sourceId",
           "definition": {
             "name": "Source Id",
@@ -917,7 +917,7 @@
           }
         },
         {
-          "id": "f5uacwuJbyD",
+          "id": "fiKrZSaKgp7",
           "sdkName": "artist",
           "definition": {
             "name": "Artist",
@@ -926,7 +926,7 @@
           }
         },
         {
-          "id": "fqEe1FRNpas",
+          "id": "foXGdFwNyZF",
           "sdkName": "album",
           "definition": {
             "name": "Album",
@@ -935,7 +935,7 @@
           }
         },
         {
-          "id": "f468HqQrjgB",
+          "id": "fgJmjYrB8RA",
           "sdkName": "coverUrl",
           "definition": {
             "name": "Cover Url",
@@ -944,7 +944,7 @@
           }
         },
         {
-          "id": "f8cXJ5nSrte",
+          "id": "fuX9tfmi587",
           "sdkName": "audioUrl",
           "definition": {
             "name": "Audio Url",
@@ -953,7 +953,7 @@
           }
         },
         {
-          "id": "fn6zAZQfgKX",
+          "id": "fkxr5FZrGrS",
           "sdkName": "durationSeconds",
           "definition": {
             "name": "Duration Seconds",
@@ -965,7 +965,7 @@
           }
         },
         {
-          "id": "fqmqkX8bmFN",
+          "id": "f8k1H8zkgaT",
           "sdkName": "licenseUrl",
           "definition": {
             "name": "License Url",
@@ -974,7 +974,7 @@
           }
         },
         {
-          "id": "f6tirnFWvwS",
+          "id": "f5MHLa3GJXc",
           "sdkName": "shareUrl",
           "definition": {
             "name": "Share Url",
@@ -983,7 +983,7 @@
           }
         },
         {
-          "id": "fh3XsW89oKS",
+          "id": "f68FJbvCxoh",
           "sdkName": "rights",
           "definition": {
             "name": "Rights",
@@ -992,7 +992,7 @@
           }
         },
         {
-          "id": "fkMHgxaVzY8",
+          "id": "fbwJyAXjBnR",
           "sdkName": "categories",
           "definition": {
             "name": "Categories",
@@ -1001,7 +1001,7 @@
           }
         },
         {
-          "id": "fvoWFPtHZ7a",
+          "id": "ftiyP6aDakA",
           "sdkName": "tags",
           "definition": {
             "name": "Tags",
@@ -1010,7 +1010,7 @@
           }
         },
         {
-          "id": "f2aQ268UJPJ",
+          "id": "fjARS3Afpke",
           "sdkName": "isFeatured",
           "definition": {
             "name": "Is Featured",
@@ -1019,7 +1019,7 @@
           }
         },
         {
-          "id": "fg2hw31FfNt",
+          "id": "f5NxiEanhdm",
           "sdkName": "status",
           "definition": {
             "name": "Status",
@@ -1027,22 +1027,22 @@
             "template": {
               "options": [
                 {
-                  "value": "bWtD",
+                  "value": "hh9g",
                   "label": "draft",
                   "color": "purple"
                 },
                 {
-                  "value": "w7p5",
+                  "value": "auWJ",
                   "label": "published",
                   "color": "orange"
                 },
                 {
-                  "value": "fc5e",
+                  "value": "hqVU",
                   "label": "hidden",
                   "color": "blue"
                 },
                 {
-                  "value": "8sHC",
+                  "value": "o7up",
                   "label": "deleted",
                   "color": "gray"
                 }
@@ -1052,7 +1052,7 @@
           }
         },
         {
-          "id": "fjmtU17prKZ",
+          "id": "fwMqgcSGBPG",
           "sdkName": "sortOrder",
           "definition": {
             "name": "Sort Order",
@@ -1064,7 +1064,7 @@
           }
         },
         {
-          "id": "f8n4VeQrv4Z",
+          "id": "fk5caVdCt4r",
           "sdkName": "createdAt",
           "definition": {
             "name": "Created At",
@@ -1080,13 +1080,13 @@
       ]
     },
     {
-      "id": "tmXtQQtYwf5",
+      "id": "tjDQp8dRuTC",
       "sdkName": "collections",
       "name": "Collections",
-      "primaryFieldId": "fuuAegYhUSR",
+      "primaryFieldId": "f4wdvPNCzrp",
       "fields": [
         {
-          "id": "fuuAegYhUSR",
+          "id": "f4wdvPNCzrp",
           "sdkName": "title",
           "definition": {
             "name": "Title",
@@ -1095,7 +1095,7 @@
           }
         },
         {
-          "id": "fdTpywRRR5Q",
+          "id": "fekU7qcyqFX",
           "sdkName": "slug",
           "definition": {
             "name": "Slug",
@@ -1104,7 +1104,7 @@
           }
         },
         {
-          "id": "fwZRvSw9yrX",
+          "id": "fwJfYhRhcBr",
           "sdkName": "description",
           "definition": {
             "name": "Description",
@@ -1113,7 +1113,7 @@
           }
         },
         {
-          "id": "fxv1Nsj1EtR",
+          "id": "f16VCfJPi68",
           "sdkName": "coverUrl",
           "definition": {
             "name": "Cover Url",
@@ -1122,7 +1122,7 @@
           }
         },
         {
-          "id": "fwigngRBfes",
+          "id": "fjZMWjeAwvy",
           "sdkName": "type",
           "definition": {
             "name": "Type",
@@ -1130,12 +1130,12 @@
             "template": {
               "options": [
                 {
-                  "value": "c3N8",
+                  "value": "jy8k",
                   "label": "row",
                   "color": "purple"
                 },
                 {
-                  "value": "ooF2",
+                  "value": "f6mv",
                   "label": "playlist",
                   "color": "orange"
                 }
@@ -1145,7 +1145,7 @@
           }
         },
         {
-          "id": "ff4mdi6UcCh",
+          "id": "ft4qsj6fJQq",
           "sdkName": "placement",
           "definition": {
             "name": "Placement",
@@ -1153,12 +1153,12 @@
             "template": {
               "options": [
                 {
-                  "value": "djDn",
+                  "value": "k9ng",
                   "label": "home",
                   "color": "purple"
                 },
                 {
-                  "value": "gwi6",
+                  "value": "jupa",
                   "label": "morshed",
                   "color": "orange"
                 }
@@ -1168,7 +1168,7 @@
           }
         },
         {
-          "id": "fx9Hci67xpw",
+          "id": "fgyWWHVHQsf",
           "sdkName": "status",
           "definition": {
             "name": "Status",
@@ -1176,22 +1176,22 @@
             "template": {
               "options": [
                 {
-                  "value": "gnut",
+                  "value": "4vVf",
                   "label": "draft",
                   "color": "purple"
                 },
                 {
-                  "value": "fhsj",
+                  "value": "vnFz",
                   "label": "published",
                   "color": "orange"
                 },
                 {
-                  "value": "vGCK",
+                  "value": "oiTL",
                   "label": "hidden",
                   "color": "blue"
                 },
                 {
-                  "value": "o2tS",
+                  "value": "5Tx2",
                   "label": "deleted",
                   "color": "gray"
                 }
@@ -1201,7 +1201,7 @@
           }
         },
         {
-          "id": "f3q9X3C1dLw",
+          "id": "fveEYofrU8k",
           "sdkName": "sortOrder",
           "definition": {
             "name": "Sort Order",
@@ -1215,13 +1215,13 @@
       ]
     },
     {
-      "id": "t92oM8V9m2K",
+      "id": "t7tfQh5dKsa",
       "sdkName": "collectionItems",
       "name": "Collection Items",
-      "primaryFieldId": "f7MyLREHZ5G",
+      "primaryFieldId": "f5Z9gP6FcJm",
       "fields": [
         {
-          "id": "f7MyLREHZ5G",
+          "id": "f5Z9gP6FcJm",
           "sdkName": "collectionId",
           "definition": {
             "name": "Collection Id",
@@ -1230,7 +1230,7 @@
           }
         },
         {
-          "id": "fd9Li4DsjJt",
+          "id": "ftKcs579yzi",
           "sdkName": "trackId",
           "definition": {
             "name": "Track Id",
@@ -1239,7 +1239,7 @@
           }
         },
         {
-          "id": "fkqFrznhJ4T",
+          "id": "fgAEVtc3p5M",
           "sdkName": "sortOrder",
           "definition": {
             "name": "Sort Order",
@@ -1253,13 +1253,13 @@
       ]
     },
     {
-      "id": "thZGZiodxs1",
+      "id": "tsYszhUz67T",
       "sdkName": "favorites",
       "name": "Favorites",
-      "primaryFieldId": "f8N9BQ4pE7V",
+      "primaryFieldId": "f8bCWMekfUg",
       "fields": [
         {
-          "id": "f8N9BQ4pE7V",
+          "id": "f8bCWMekfUg",
           "sdkName": "memberId",
           "definition": {
             "name": "Member Id",
@@ -1268,7 +1268,7 @@
           }
         },
         {
-          "id": "f8vBTjyBYST",
+          "id": "fiwZTsGGqar",
           "sdkName": "trackId",
           "definition": {
             "name": "Track Id",
@@ -1277,7 +1277,7 @@
           }
         },
         {
-          "id": "faMzgisHcxv",
+          "id": "fbFDUvSyeys",
           "sdkName": "createdAt",
           "definition": {
             "name": "Created At",
@@ -1293,13 +1293,13 @@
       ]
     },
     {
-      "id": "tqTW1YoBY2K",
+      "id": "t8hW2qabSDS",
       "sdkName": "listeningHistory",
       "name": "Listening History",
-      "primaryFieldId": "fnBhpSWN3VL",
+      "primaryFieldId": "ftXczcvTahr",
       "fields": [
         {
-          "id": "fnBhpSWN3VL",
+          "id": "ftXczcvTahr",
           "sdkName": "memberId",
           "definition": {
             "name": "Member Id",
@@ -1308,7 +1308,7 @@
           }
         },
         {
-          "id": "fuUZCzzHNgf",
+          "id": "fqSxG1DTsEj",
           "sdkName": "trackId",
           "definition": {
             "name": "Track Id",
@@ -1317,7 +1317,7 @@
           }
         },
         {
-          "id": "fjuAunrR2qZ",
+          "id": "fjjxQBHiY12",
           "sdkName": "positionSec",
           "definition": {
             "name": "Position Sec",
@@ -1329,7 +1329,7 @@
           }
         },
         {
-          "id": "f8ALZus9zqt",
+          "id": "fkGkLbCXPqt",
           "sdkName": "completed",
           "definition": {
             "name": "Completed",
@@ -1338,7 +1338,7 @@
           }
         },
         {
-          "id": "f7YDpH3EsJe",
+          "id": "ff9gWR8q5AL",
           "sdkName": "playedAt",
           "definition": {
             "name": "Played At",
@@ -1354,13 +1354,13 @@
       ]
     },
     {
-      "id": "t5dxgqaek8T",
+      "id": "tdr7vJLDoT9",
       "sdkName": "announcements",
       "name": "Announcements",
-      "primaryFieldId": "fqEiHsPUsLh",
+      "primaryFieldId": "f5rCfmRU7bX",
       "fields": [
         {
-          "id": "fqEiHsPUsLh",
+          "id": "f5rCfmRU7bX",
           "sdkName": "title",
           "definition": {
             "name": "Title",
@@ -1369,7 +1369,7 @@
           }
         },
         {
-          "id": "fiF2YLbZ1CY",
+          "id": "fgAkFZJ8WkU",
           "sdkName": "body",
           "definition": {
             "name": "Body",
@@ -1378,7 +1378,7 @@
           }
         },
         {
-          "id": "f8ePpCC8Lwf",
+          "id": "fv9nv64Cex9",
           "sdkName": "link",
           "definition": {
             "name": "Link",
@@ -1387,7 +1387,7 @@
           }
         },
         {
-          "id": "f2xsDoC7Z78",
+          "id": "fxk5ToYQe54",
           "sdkName": "startsAt",
           "definition": {
             "name": "Starts At",
@@ -1401,7 +1401,7 @@
           }
         },
         {
-          "id": "fi61gr2jgrU",
+          "id": "feUM8GYHxot",
           "sdkName": "endsAt",
           "definition": {
             "name": "Ends At",
@@ -1415,7 +1415,7 @@
           }
         },
         {
-          "id": "f3o2jhqFAs1",
+          "id": "f36cAHYMRjD",
           "sdkName": "status",
           "definition": {
             "name": "Status",
@@ -1423,17 +1423,17 @@
             "template": {
               "options": [
                 {
-                  "value": "8z1i",
+                  "value": "7DTM",
                   "label": "draft",
                   "color": "purple"
                 },
                 {
-                  "value": "3SPx",
+                  "value": "s6S2",
                   "label": "published",
                   "color": "orange"
                 },
                 {
-                  "value": "2xzk",
+                  "value": "7WjD",
                   "label": "deleted",
                   "color": "blue"
                 }
@@ -1443,7 +1443,7 @@
           }
         },
         {
-          "id": "foTu1sdieCn",
+          "id": "fqtwNJzHDku",
           "sdkName": "audience",
           "definition": {
             "name": "Audience",
@@ -1451,7 +1451,7 @@
             "template": {
               "options": [
                 {
-                  "value": "uBt8",
+                  "value": "5R62",
                   "label": "all",
                   "color": "purple"
                 }

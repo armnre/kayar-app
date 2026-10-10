@@ -1,3 +1,4 @@
+import ErrorNotice from '../ErrorNotice';
 import { useState, type FormEvent } from 'react';
 import { z } from 'zod';
 import { RefreshCw } from 'lucide-react';
@@ -71,7 +72,7 @@ export function MemberForm({ open, onOpenChange, staff, editing, onDone }: { ope
           <FloatInput id="mf-tags" label="برچسب‌ها (با ، جدا کن)" value={f.tags} onChange={set('tags')} />
           <label className="block text-sm font-bold">یادداشت<textarea value={f.note} onChange={(e) => set('note')(e.target.value)} maxLength={1000} rows={2} className="mt-1 w-full rounded-2xl border border-white/10 bg-white/[.04] p-3 text-base outline-none focus:border-primary" /></label>
           <p className="text-sm text-muted-foreground">کاربر در اولین ورود مجبور به تغییر رمز است.</p>
-          {err && <div role="alert" className="rounded-2xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">{err}</div>}
+          <ErrorNotice err={err} />
           <div className="sticky bottom-0 -mx-1 bg-bg1/95 px-1 pb-1 pt-2"><KButton type="submit" className="w-full" loading={loading} disabled={touched && !parsed.success}>{editing ? 'ذخیره تغییرات' : 'ساخت حساب'}</KButton></div>
         </form>
       )}

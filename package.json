@@ -1,5 +1,5 @@
 {
-  "name": "kayar-design-system",
+  "name": "kayar-health-check",
   "private": true,
   "workspaces": [
     "apps/*",

@@ -168,10 +168,11 @@ export function useReveal() {
   });
 }
 
-export function Cover({ hue, className, children }: { hue: number; className?: string; children?: ReactNode }) {
+export function Cover({ hue, image, className, children }: { hue: number; image?: string; className?: string; children?: ReactNode }) {
   return (
     <div className={cn('relative overflow-hidden rounded-2xl', className)} style={{ background: `radial-gradient(120% 90% at 20% 10%, hsl(${hue} 90% 60%), hsl(${hue} 70% 22%) 60%, hsl(210 17% 6%))` }}>
       <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full opacity-30" aria-hidden><circle cx="70" cy="70" r="40" fill="none" stroke="white" strokeWidth=".6" /><circle cx="70" cy="70" r="28" fill="none" stroke="white" strokeWidth=".6" /></svg>
+      {image && <img src={image} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />}
       {children}
     </div>
   );

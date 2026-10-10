@@ -24,7 +24,7 @@ export function Credentials({ card, phone }: { card: CardData; phone?: string })
         <KButton variant="outline" size="sm" onClick={() => navigator.clipboard.writeText(text).then(() => toast.success('متن کپی شد'))}><Copy className="h-4 w-4" />کپی متن</KButton>
         <KButton variant="outline" size="sm" onClick={() => { window.location.href = sms; }}>پیامک</KButton>
         <KButton variant="outline" size="sm" onClick={() => window.open(wa, '_blank', 'noopener')}><MessageCircle className="h-4 w-4" />واتس‌اپ</KButton>
-        <KButton size="sm" onClick={() => printCards([card]).catch((e) => toast.error(e.message))}><Printer className="h-4 w-4" />کارت چاپی</KButton>
+        <KButton size="sm" onClick={() => printCards([card]).catch((e) => toast.error('چاپ کارت انجام نشد؛ دوباره تلاش کن.'))}><Printer className="h-4 w-4" />کارت چاپی</KButton>
       </div>
     </div>
   );

@@ -83,7 +83,7 @@ export function BulkCreate({ open, onOpenChange, onDone }: { open: boolean; onOp
             {!done && <><KButton variant="ghost" onClick={reset}>فایل دیگر</KButton><KButton className="flex-1" loading={busy} disabled={!okCount} onClick={create}>ساخت {fa(okCount)} حساب</KButton></>}
             {done && created.length > 0 && <>
               <KButton variant="outline" className="flex-1" onClick={() => downloadText(`kayar-accounts-${new Date().toISOString().slice(0, 10)}.csv`, '\uFEFF' + ['name,username,tempPassword', ...created.map((r) => [r.name, r.username, r.tempPassword!].map(csvEsc).join(','))].join('\n'))}><Download className="h-4 w-4" />دانلود CSV</KButton>
-              <KButton className="flex-1" onClick={() => printCards(created.map((r) => ({ name: r.name, username: r.username, password: r.tempPassword! }))).catch((e) => toast.error(e.message))}><Printer className="h-4 w-4" />چاپ کارت‌ها</KButton>
+              <KButton className="flex-1" onClick={() => printCards(created.map((r) => ({ name: r.name, username: r.username, password: r.tempPassword! }))).catch((e) => toast.error('چاپ کارت‌ها انجام نشد؛ دوباره تلاش کن.'))}><Printer className="h-4 w-4" />چاپ کارت‌ها</KButton>
             </>}
           </div>
         </>
