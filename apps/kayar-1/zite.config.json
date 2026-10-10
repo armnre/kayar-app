@@ -1,0 +1,15 @@
+{
+  "id": "837lvj5qog",
+  "accessMode": "external",
+  "envVars": {
+    "ZITE_BOOTSTRAP_ADMIN_PASSWORD": {
+      "description": "رمز موقت اولین مدیر ارشد (حداقل ۸ نویسه؛ در اولین ورود باید عوض شود)"
+    },
+    "ZITE_BOOTSTRAP_ADMIN_USERNAME": {
+      "description": "نام کاربری اولین مدیر ارشد پنل کایار"
+    },
+    "ZITE_JAMENDO_CLIENT_ID": {
+      "description": "Client ID از developer.jamendo.com برای پخش موزیک ورزشی در مرشد"
+    }
+  }
+}
