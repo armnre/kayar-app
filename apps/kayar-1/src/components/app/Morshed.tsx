@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { appLibrary, type AppLibraryOutputType } from 'zitejs/api';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Heart, SearchX, RefreshCw, Music2, Mic2, Play, Pause, Zap, Dumbbell, HeartPulse, Leaf, Brain, X, Radio } from 'lucide-react';
+import { Search, Heart, SearchX, RefreshCw, Music2, Mic2, Play, Pause, Zap, Dumbbell, HeartPulse, Leaf, Brain, X } from 'lucide-react';
 import { cn } from '@project/components/lib/utils';
 import { Skeleton } from '@project/components/ui/skeleton';
 import { Cover, Waveform, StateView } from '../kit';
@@ -74,43 +74,32 @@ const Loading = () => <div className="space-y-2">{Array.from({ length: 6 }).map(
 const Failed = ({ err, retry }: { err: string; retry: () => void }) => <StateView icon={RefreshCw} tone="violet" title="موزیک‌ها بارگذاری نشد" text={err} action={<button onClick={retry} className="tap rounded-full bg-violet px-5 font-bold text-white">تلاش دوباره</button>} />;
 const Rows = ({ list }: { list: Track[] }) => <ul className="space-y-1">{list.map((t, i) => <TrackRow key={t.id} t={t} i={i} list={list} />)}</ul>;
 
-function Library() {
-  const [q, setQ] = useState(''); const dq = useDebounced(q);
-  const { data, err, retry } = useMorshed('library', dq || undefined);
-  if (err) return <Failed err={err} retry={retry} />;
-  const featured = (data?.tracks ?? []).filter((t) => t.featured);
-  return (
-    <>
-      <SearchBox q={q} setQ={setQ} placeholder="جست‌وجو در کتابخانه‌ی کایار…" />
-      {!data ? <div className="mt-5"><Loading /></div> : !data.tracks.length ? <StateView icon={dq ? SearchX : Library_} tone="violet" title={dq ? 'چیزی پیدا نشد' : 'کتابخانه هنوز خالیه'} text={dq ? 'یه کلمه‌ی دیگه امتحان کن.' : data.jamendo.available ? 'فعلاً از تب «Jamendo زنده» آهنگ پیدا کن.' : 'به‌زودی آهنگ‌های منتخب اینجا اضافه می‌شن.'} /> : (
-        <>
-          {!dq && featured.length > 0 && <Featured list={featured} />}
-          {!dq && data.collections.map((c) => <div key={c.id}><H t={c.title} />{c.description && <p className="-mt-2 mb-2 text-sm text-muted-foreground">{c.description}</p>}<Rows list={c.tracks} /></div>)}
-          <H t={dq ? `نتایج «${dq}»` : 'همه‌ی آهنگ‌ها'} />
-          <Rows list={data.tracks} />
-        </>
-      )}
-    </>
-  );
-}
-
-function Live() {
+function Music() {
   const [cat, setCat] = useState('انرژی');
   const [q, setQ] = useState(''); const dq = useDebounced(q);
-  const { data, err, retry } = useMorshed('jamendo', dq || undefined, dq ? undefined : cat);
-  if (data && !data.jamendo.available) return <StateView icon={Radio} tone="violet" title="جست‌وجوی زنده فعلاً در دسترس نیست" text={data.jamendo.reason === 'disabled' ? 'مدیر این منبع را غیرفعال کرده است.' : 'این منبع هنوز توسط مدیر راه‌اندازی نشده است.'} />;
+  const lib = useMorshed('library', dq || undefined);
+  const live = useMorshed('jamendo', dq || undefined, dq ? undefined : cat);
+  const libTracks = lib.data?.tracks ?? [];
+  const featured = libTracks.filter((t) => t.featured);
+  const liveOk = live.data?.jamendo.available !== false;
   return (
     <>
-      <SearchBox q={q} setQ={setQ} placeholder="جست‌وجو در Jamendo…" />
-      {!dq && <div className="-mx-4 mt-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none]">
+      <SearchBox q={q} setQ={setQ} placeholder="آهنگ، هنرمند یا حس‌وحال…" />
+      {!dq && <div className="-mx-4 mt-4 grid grid-flow-col auto-cols-[42%] gap-3 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:auto-cols-[24%]">
         {categories.map((c) => { const m = catMeta[c]; const on = cat === c; return (
-          <button key={c} onClick={() => setCat(c)} className={cn('press relative flex h-11 shrink-0 items-center gap-2 overflow-hidden rounded-full ps-1.5 pe-4 text-sm font-black transition', on ? 'bg-foreground text-background' : 'border border-border bg-card text-muted-foreground')}>
-            <span className={cn('grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br text-white', m.g)}><m.i className="h-4 w-4" /></span>{c}
+          <button key={c} onClick={() => setCat(c)} className={cn('press relative h-20 overflow-hidden rounded-3xl bg-gradient-to-br p-3 text-start text-white transition', m.g, on ? 'ring-2 ring-white/80 ring-offset-2 ring-offset-background' : 'opacity-70')}>
+            <m.i className="absolute -bottom-2 -end-2 h-14 w-14 rotate-12 opacity-30" /><span className="relative text-sm font-black">{c}</span>
           </button>); })}
       </div>}
-      <H t={dq ? `نتایج «${dq}»` : cat} />
-      {err ? <Failed err={err} retry={retry} /> : !data ? <Loading /> : data.tracks.length ? <Rows list={data.tracks} /> : <StateView icon={SearchX} tone="violet" title="چیزی پیدا نشد" text="یه کلمه‌ی دیگه امتحان کن." />}
-      <p className="mt-6 text-center text-xs text-muted-foreground">نتایج زنده از Jamendo با مجوزهای Creative Commons؛ مجوز هر آهنگ در پلیر نمایش داده می‌شود.</p>
+      {lib.err ? <Failed err={lib.err} retry={lib.retry} /> : !lib.data ? <div className="mt-5"><Loading /></div> : <>
+        {!dq && featured.length > 0 && <Featured list={featured} />}
+        {!dq && lib.data.collections.map((c) => <div key={c.id}><H t={c.title} />{c.description && <p className="-mt-2 mb-2 text-sm text-muted-foreground">{c.description}</p>}<Rows list={c.tracks} /></div>)}
+        {(dq ? libTracks.length > 0 : libTracks.length > 0 && !lib.data.collections.length) && <><H t={dq ? 'منتخب کایار' : 'منتخب کایار'} /><Rows list={libTracks} /></>}
+      </>}
+      {liveOk && <>
+        <H t={dq ? `نتایج «${dq}»` : `حال‌وهوای ${cat}`} />
+        {live.err ? <Failed err={live.err} retry={live.retry} /> : !live.data ? <Loading /> : live.data.tracks.length ? <Rows list={live.data.tracks} /> : <StateView icon={SearchX} tone="violet" title="چیزی پیدا نشد" text="یه کلمه‌ی دیگه امتحان کن." />}
+      </>}
     </>
   );
 }
@@ -128,7 +117,7 @@ function Mine() {
   const gone = d.favorites.length - favs.length + d.history.length - hist.length;
   return (
     <>
-      <H t="علاقه‌مندی‌ها" />
+      <H t="آهنگ‌های محبوبت" />
       {favs.length ? <Rows list={favs} /> : <StateView icon={Heart} tone="violet" title="هنوز علاقه‌مندی نداری" text="روی قلب کنار هر آهنگ بزن تا اینجا ذخیره بشه." />}
       <H t="اخیراً شنیدی" />
       {hist.length ? <Rows list={hist} /> : <p className="text-sm text-muted-foreground">هنوز چیزی پخش نکردی.</p>}
@@ -137,24 +126,32 @@ function Mine() {
   );
 }
 
-const Library_ = Music2;
 export function Morshed() {
-  const [tab, setTab] = useState<'library' | 'live' | 'mine' | 'podcast'>('library');
-  const tabs = [{ k: 'library' as const, l: 'کتابخانه', i: Music2 }, { k: 'live' as const, l: 'Jamendo زنده', i: Radio }, { k: 'mine' as const, l: 'مال من', i: Heart }, { k: 'podcast' as const, l: 'پادکست', i: Mic2 }];
+  const [tab, setTab] = useState<'music' | 'podcast' | 'fav'>('music');
+  const tabs = [{ k: 'music' as const, l: 'موزیک', i: Music2 }, { k: 'podcast' as const, l: 'پادکست', i: Mic2 }];
   return (
     <div className="pb-6">
-      <div><p className="text-sm font-bold text-[hsl(254_100%_78%)]">مرشد</p><h1 className="text-[clamp(1.8rem,7vw,2.5rem)] font-black leading-tight">ریتم تمرینت</h1></div>
-      <div className="relative mt-5 grid grid-cols-4 rounded-2xl border border-border bg-card p-1" role="tablist">
-        {tabs.map((t) => (
-          <button key={t.k} role="tab" aria-selected={tab === t.k} onClick={() => setTab(t.k)} className={cn('relative z-10 flex h-11 items-center justify-center gap-1.5 rounded-xl text-xs font-black transition-colors sm:text-sm', tab === t.k ? 'text-white' : 'text-muted-foreground')}>
-            {tab === t.k && <motion.span layoutId="mtab" className="absolute inset-0 -z-10 rounded-xl bg-violet" transition={{ type: 'spring', stiffness: 400, damping: 32 }} />}
-            <t.i className="hidden h-4 w-4 sm:block" />{t.l}
+      <div className="relative -mx-4 overflow-hidden px-4 pb-2 pt-1">
+        <div className="pointer-events-none absolute -top-24 end-0 h-56 w-56 rounded-full bg-violet/25 blur-3xl" />
+        <div className="relative flex items-center justify-between">
+          <div><p className="text-xs font-bold tracking-widest text-[hsl(254_100%_78%)]">MORSHED</p><h1 className="text-3xl font-black">مرشد</h1></div>
+          <button onClick={() => setTab(tab === 'fav' ? 'music' : 'fav')} aria-label="علاقه‌مندی‌ها" aria-pressed={tab === 'fav'}
+            className={cn('press grid h-12 w-12 place-items-center rounded-2xl border transition', tab === 'fav' ? 'border-violet bg-violet text-white shadow-[0_8px_24px_-6px_hsl(254_100%_60%/.7)]' : 'border-border bg-card text-muted-foreground')}>
+            <Heart className={cn('h-5 w-5', tab === 'fav' && 'fill-current')} />
           </button>
-        ))}
+        </div>
+        <div className="relative mt-5 grid grid-cols-2 rounded-full border border-border bg-card/80 p-1 backdrop-blur" role="tablist">
+          {tabs.map((t) => (
+            <button key={t.k} role="tab" aria-selected={tab === t.k} onClick={() => setTab(t.k)} className={cn('relative z-10 flex h-11 items-center justify-center gap-2 rounded-full text-sm font-black transition-colors', tab === t.k ? 'text-white' : 'text-muted-foreground')}>
+              {tab === t.k && <motion.span layoutId="mtab" className="absolute inset-0 -z-10 rounded-full bg-gradient-to-l from-violet to-[hsl(280_80%_55%)]" transition={{ type: 'spring', stiffness: 400, damping: 32 }} />}
+              <t.i className="h-4 w-4" />{t.l}
+            </button>
+          ))}
+        </div>
       </div>
       <AnimatePresence mode="wait">
-        <motion.div key={tab} initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -16 }} transition={{ duration: 0.22 }}>
-          {tab === 'library' ? <Library /> : tab === 'live' ? <Live /> : tab === 'mine' ? <Mine /> : <Podcasts />}
+        <motion.div key={tab} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}>
+          {tab === 'music' ? <Music /> : tab === 'fav' ? <Mine /> : <Podcasts />}
         </motion.div>
       </AnimatePresence>
     </div>

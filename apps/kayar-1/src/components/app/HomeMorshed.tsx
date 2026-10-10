@@ -56,15 +56,13 @@ export function AppHome() {
   const stats = [{ i: Flame, v: fa(0), l: 'روز پیاپی', c: 'text-[hsl(24_100%_60%)]' }, { i: Timer, v: fa(0), l: 'دقیقه تمرین', c: 'text-primary' }, { i: Trophy, v: fa(0), l: 'تمرین کامل', c: 'text-gold' }];
   return (
     <div className="pb-6">
-      <motion.div {...up(0)} className="relative flex flex-col items-center py-4 text-center">
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-bold text-muted-foreground">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />{new Intl.DateTimeFormat('fa-IR', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date())}
-        </span>
-        <p className="mt-4 text-base font-bold text-muted-foreground">{greet()}{first && <>، <span className="text-foreground">{first}</span></>}</p>
-        <h1 className="mt-1 text-[clamp(2rem,8vw,2.9rem)] font-black leading-[1.15] tracking-tight">
-          آماده‌ی برای <span className="relative inline-block text-primary">یه تمرین خوب<svg viewBox="0 0 200 12" className="absolute -bottom-2 start-0 h-3 w-full text-primary/60" preserveAspectRatio="none"><path d="M2 9 Q 50 2 100 7 T 198 5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg></span>؟
-        </h1>
-        <p className="mx-auto mt-4 max-w-sm text-sm text-muted-foreground">هر قدم کوچیک امروز، نتیجه‌ی بزرگ فرداست. بزن بریم 💪</p>
+      <motion.div {...up(0)} className="flex items-end justify-between gap-3 pt-1">
+        <div className="min-w-0">
+          <p className="text-xs font-bold text-muted-foreground">{new Intl.DateTimeFormat('fa-IR', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date())}</p>
+          <h1 className="mt-1 truncate text-2xl font-black tracking-tight">{greet()}{first && <>، <span className="text-primary">{first}</span></>}</h1>
+          <p className="mt-0.5 text-sm text-muted-foreground">امروز بدنت رو به حرکت دربیار.</p>
+        </div>
+        <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-primary mb-2" />
       </motion.div>
 
       <HomeAnnouncement />
