@@ -49,7 +49,7 @@ export function AppHome() {
         </span>
         <p className="mt-4 text-base font-bold text-muted-foreground">{greet()}{first && <>، <span className="text-foreground">{first}</span></>}</p>
         <h1 className="mt-1 text-[clamp(2rem,8vw,2.9rem)] font-black leading-[1.15] tracking-tight">
-          آماده‌ی <span className="relative inline-block text-primary">یه تمرین خوب<svg viewBox="0 0 200 12" className="absolute -bottom-2 start-0 h-3 w-full text-primary/60" preserveAspectRatio="none"><path d="M2 9 Q 50 2 100 7 T 198 5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg></span>؟
+          آماده‌ی برای <span className="relative inline-block text-primary">یه تمرین خوب<svg viewBox="0 0 200 12" className="absolute -bottom-2 start-0 h-3 w-full text-primary/60" preserveAspectRatio="none"><path d="M2 9 Q 50 2 100 7 T 198 5" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg></span>؟
         </h1>
         <p className="mx-auto mt-4 max-w-sm text-sm text-muted-foreground">هر قدم کوچیک امروز، نتیجه‌ی بزرگ فرداست. بزن بریم 💪</p>
       </motion.div>

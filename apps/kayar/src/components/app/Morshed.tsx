@@ -41,15 +41,20 @@ export function TrackRow({ t, i, list }: { t: Track; i: number; list: Track[] })
 
 function Featured({ list }: { list: Track[] }) {
   const { play, track, playing, toggle } = usePreview();
-  const t = list[0]; const active = track?.id === t.id;
   return (
-    <div className="relative mt-5 overflow-hidden rounded-[28px] border border-white/10">
-      {t.image && <img src={t.image} alt="" className="absolute inset-0 h-full w-full scale-110 object-cover opacity-50 blur-2xl" />}
-      <div className="relative flex items-center gap-4 bg-gradient-to-l from-black/20 to-black/70 p-4">
-        <Cover hue={t.hue} image={t.image} className="h-24 w-24 shrink-0 rounded-2xl shadow-2xl" />
-        <div className="min-w-0 flex-1"><span className="text-[11px] font-bold text-white/70">پیشنهاد ویژه</span><div className="truncate text-lg font-black text-white">{t.title}</div><div className="truncate text-sm text-white/70">{t.artist}</div></div>
-        <button onClick={() => (active ? toggle() : play(t, list))} className="press grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white text-black shadow-xl" aria-label="پخش">{active && playing ? <Pause className="h-6 w-6 fill-current" /> : <Play className="h-6 w-6 fill-current" />}</button>
-      </div>
+    <div className="-mx-4 mt-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none]">
+      {list.slice(0, 5).map((t, i) => { const active = track?.id === t.id; return (
+        <motion.div key={t.id} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.06 }}
+          className="relative h-64 w-[82%] shrink-0 snap-center overflow-hidden rounded-[30px] sm:w-[60%]">
+          <Cover hue={t.hue} image={t.image} className="absolute inset-0 h-full w-full rounded-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <span className="absolute start-4 top-4 rounded-full bg-black/40 px-3 py-1 text-[11px] font-black text-white backdrop-blur">{i === 0 ? '🔥 داغ‌ترین' : `#${fa(i + 1)} این ماه`}</span>
+          <div className="absolute inset-x-0 bottom-0 flex items-end gap-3 p-4">
+            <div className="min-w-0 flex-1 text-white"><div className="truncate text-xl font-black">{t.title}</div><div className="truncate text-sm text-white/70">{t.artist}</div>
+              {active && <Waveform bars={18} playing={playing} className="mt-2 h-4" color="bg-primary" />}</div>
+            <button onClick={() => (active ? toggle() : play(t, list))} className="press grid h-14 w-14 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground shadow-[0_8px_30px_hsl(var(--primary)/.5)]" aria-label="پخش">{active && playing ? <Pause className="h-6 w-6 fill-current" /> : <Play className="h-6 w-6 fill-current" />}</button>
+          </div>
+        </motion.div>); })}
     </div>
   );
 }
@@ -68,17 +73,17 @@ function Music() {
         <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="آهنگ یا هنرمند…" aria-label="جست‌وجو" className="h-12 w-full rounded-2xl border border-border bg-card pe-11 ps-12 text-base outline-none transition focus:border-violet" />
         {q && <button onClick={() => setQ('')} className="absolute end-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full text-muted-foreground" aria-label="پاک کردن"><X className="h-4 w-4" /></button>}
       </div>
-      {!dq && <div className="-mx-4 mt-4 flex snap-x gap-3 overflow-x-auto px-4 pb-1">
+      {!dq && <div className="-mx-4 mt-4 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none]">
         {categories.map((c) => { const m = catMeta[c]; const on = cat === c; return (
-          <button key={c} onClick={() => setCat(c)} className={cn('press relative h-24 w-28 shrink-0 snap-start overflow-hidden rounded-2xl bg-gradient-to-br p-3 text-start text-white transition', m.g, on ? 'ring-2 ring-white/80 ring-offset-2 ring-offset-background' : 'opacity-70')}>
-            <m.i className="absolute -bottom-3 -end-3 h-16 w-16 opacity-25" /><m.i className="h-5 w-5" /><div className="absolute bottom-3 start-3 text-sm font-black">{c}</div>
+          <button key={c} onClick={() => setCat(c)} className={cn('press relative flex h-11 shrink-0 items-center gap-2 overflow-hidden rounded-full ps-1.5 pe-4 text-sm font-black transition', on ? 'bg-foreground text-background' : 'border border-border bg-card text-muted-foreground')}>
+            <span className={cn('grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br text-white', m.g)}><m.i className="h-4 w-4" /></span>{c}
           </button>); })}
       </div>}
-      {!dq && list && list.length > 0 && !onlyFav && <Featured list={list} />}
-      <H t={dq ? `نتایج «${dq}»` : onlyFav ? 'علاقه‌مندی‌ها' : cat} s={<button onClick={() => setOnlyFav((v) => !v)} className={cn('tap flex items-center gap-1.5 rounded-full px-3 text-xs font-bold transition', onlyFav ? 'bg-violet text-white' : 'bg-card text-muted-foreground')}><Heart className="h-3.5 w-3.5" />{fa(favs.size)}</button>} />
+      {!dq && !onlyFav && (list ? list.length > 0 && <Featured list={list} /> : <div className="-mx-4 mt-5 flex gap-3 overflow-hidden px-4">{[0, 1].map((i) => <Skeleton key={i} className="h-64 w-[82%] shrink-0 rounded-[30px]" />)}</div>)}
+      <H t={dq ? `نتایج «${dq}»` : onlyFav ? 'علاقه‌مندی‌ها' : `بیشتر از ${cat}`} s={<button onClick={() => setOnlyFav((v) => !v)} className={cn('tap flex items-center gap-1.5 rounded-full px-3 text-xs font-bold transition', onlyFav ? 'bg-violet text-white' : 'bg-card text-muted-foreground')}><Heart className="h-3.5 w-3.5" />{fa(favs.size)}</button>} />
       {err ? <StateView icon={RefreshCw} tone="violet" title="موزیک‌ها بارگذاری نشد" text={err} action={<button onClick={retry} className="tap rounded-full bg-violet px-5 font-bold text-white">تلاش دوباره</button>} />
         : !list ? <div className="space-y-2">{Array.from({ length: 6 }).map((_, i) => <Skeleton key={i} className="h-[72px] rounded-2xl" />)}</div>
-        : shown.length ? <ul className="space-y-1">{shown.map((t, i) => <TrackRow key={t.id} t={t} i={i} list={shown} />)}</ul>
+        : shown.length ? <ul className="space-y-1">{(dq || onlyFav ? shown : shown.slice(5)).map((t, i) => <TrackRow key={t.id} t={t} i={i} list={shown} />)}</ul>
         : <StateView icon={SearchX} tone="violet" title={onlyFav ? 'هنوز علاقه‌مندی نداری' : 'چیزی پیدا نشد'} text={onlyFav ? 'روی قلب کنار هر آهنگ بزن تا اینجا ذخیره بشه.' : 'یه کلمه‌ی دیگه امتحان کن.'} />}
       <p className="mt-6 text-center text-xs text-muted-foreground">آهنگ‌ها از Jamendo با مجوز Creative Commons</p>
     </>
