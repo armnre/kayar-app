@@ -274,6 +274,8 @@ export type PostsRecordType = {
   authorId?: string;
   /** Read-only. "Created At". Auto-set when record was created (ISO 8601) */
   createdAt?: string;
+  /** Read-only. "Updated At". Auto-set when record was last modified (ISO 8601) */
+  updatedAt?: string;
 };
 
 /** What you may write when creating or updating a record in the "Posts" table. */
@@ -307,6 +309,8 @@ export type MediaAssetsRecordType = {
   uploadedBy?: string;
   /** Read-only. "Created At". Auto-set when record was created (ISO 8601) */
   createdAt?: string;
+  fileName?: string;
+  mimeType?: string;
 };
 
 /** What you may write when creating or updating a record in the "Media Assets" table. */
@@ -318,6 +322,8 @@ export type MediaAssetsRecordInput = {
   height: string | number | null;
   size: string | number | null;
   uploadedBy: string | null;
+  fileName: string | null;
+  mimeType: string | null;
 };
 
 /** A record in the "Tracks" table, as it is read back. */
@@ -461,6 +467,11 @@ export type AnnouncementsRecordType = {
   endsAt?: string;
   status?: "draft" | "published" | "deleted" | string;
   audience?: "all" | string;
+  /** Read-only. "Updated At". Auto-set when record was last modified (ISO 8601) */
+  updatedAt?: string;
+  createdBy?: string;
+  /** Read-only. "Created At". Auto-set when record was created (ISO 8601) */
+  createdAt?: string;
 };
 
 /** What you may write when creating or updating a record in the "Announcements" table. */
@@ -472,6 +483,7 @@ export type AnnouncementsRecordInput = {
   endsAt: string | Date | null;
   status: "draft" | "published" | "deleted" | string | null;
   audience: "all" | string | null;
+  createdBy: string | null;
 };
 
 export interface ZiteAuthUser {

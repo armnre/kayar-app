@@ -1,12 +1,12 @@
 {
   "project": {
-    "name": "Kayar Health Check",
-    "basePublicIdentifier": "7ad1fc9cacf9f33f"
+    "name": "KAYAR Health Check",
+    "basePublicIdentifier": "763e2cdeaa2703f0"
   },
   "integrations": {
     "github": {
       "type": "github",
-      "connectionId": "svc_560375"
+      "connectionId": "svc_560405"
     }
   },
   "envVars": {
