@@ -28,15 +28,15 @@ export function Bodyyar() {
   const [msg, setMsg] = useState('');
   if (stage === 'intro') return (
     <div className="pb-6">
-      <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} className="relative overflow-hidden rounded-[32px] bg-[radial-gradient(120%_120%_at_100%_0%,hsl(71_100%_56%),hsl(110_70%_38%)_55%,hsl(160_60%_14%))] p-6 pb-7 text-primary-foreground shadow-[0_24px_60px_-24px_hsl(71_100%_50%/.7)]">
-        <div className="pointer-events-none absolute -end-12 -top-12 h-56 w-56 rounded-full border-[26px] border-black/10" />
-        <div className="pointer-events-none absolute -bottom-20 -start-10 h-48 w-48 rounded-full bg-white/20 blur-3xl" />
-        <span className="relative inline-flex items-center gap-1.5 rounded-full bg-black/15 px-3 py-1 text-xs font-bold"><Sparkles className="h-3.5 w-3.5" />مربی شخصی تو</span>
+      <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} className="relative overflow-hidden rounded-[32px] border border-primary/20 bg-card bg-[radial-gradient(90%_80%_at_100%_0%,hsl(var(--primary)/.22),transparent_60%)] p-6 pb-7">
+        <div className="pointer-events-none absolute -end-12 -top-12 h-56 w-56 rounded-full border-[26px] border-primary/10" />
+        <div className="pointer-events-none absolute -bottom-20 -start-10 h-48 w-48 rounded-full bg-primary/10 blur-3xl" />
+        <span className="relative inline-flex items-center gap-1.5 rounded-full bg-primary/15 px-3 py-1 text-xs font-bold text-primary"><Sparkles className="h-3.5 w-3.5" />مربی شخصی تو</span>
         <h1 className="relative mt-4 text-[clamp(2rem,8vw,2.8rem)] font-black leading-tight">بدن‌یار</h1>
-        <p className="relative mt-1 max-w-xs font-medium opacity-80">شش سؤال ساده، یه برنامه‌ی تمرین و تغذیه که فقط مال خودته.</p>
+        <p className="relative mt-1 max-w-xs font-medium text-muted-foreground">شش سؤال ساده، یه برنامه‌ی تمرین و تغذیه که فقط مال خودته.</p>
         <div className="relative mt-6 flex items-center gap-3">
-          <button onClick={() => setStage('wizard')} className="press inline-flex h-12 items-center gap-2 rounded-full bg-primary-foreground px-6 font-black text-primary shadow-xl">شروع کن <ArrowLeft className="h-5 w-5" /></button>
-          <span className="text-xs font-bold opacity-70">⏱ کمتر از ۱ دقیقه</span>
+          <button onClick={() => setStage('wizard')} className="press inline-flex h-12 items-center gap-2 rounded-full bg-primary px-6 font-black text-primary-foreground shadow-[0_10px_30px_-8px_hsl(var(--primary)/.6)]">شروع کن <ArrowLeft className="h-5 w-5" /></button>
+          <span className="text-xs font-bold text-muted-foreground">⏱ کمتر از ۱ دقیقه</span>
         </div>
       </motion.div>
       <H t="چی می‌گیری؟" />

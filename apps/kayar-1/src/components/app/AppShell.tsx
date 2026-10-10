@@ -65,7 +65,7 @@ function FullPlayer() {
           <div className="absolute inset-0 -z-10 opacity-60" style={{ background: `radial-gradient(80% 50% at 50% 20%, hsl(${track.hue} 80% 45% / .5), transparent)` }} />
           <div className="mx-auto flex w-full max-w-md items-center justify-between">
             <button className="tap grid place-items-center rounded-full hover:bg-white/5" onClick={() => setFullPlayer(false)} aria-label="بستن پلیر"><ChevronDown className="h-7 w-7" /></button>
-            <span className="text-sm text-muted-foreground">{track.source === 'jamendo' ? 'از Jamendo' : 'کتابخانه‌ی کایار'}</span>
+            <span className="text-sm text-muted-foreground">{track.source === 'jamendo' ? 'از Jamendo' : 'منتخب کایار'}</span>
             <button className="tap grid place-items-center rounded-full" onClick={() => setShowQueue((v) => !v)} aria-label="صف پخش" aria-pressed={showQueue}><ListMusic className="h-6 w-6" /></button>
           </div>
           <div className="mx-auto mt-6 flex w-full max-w-md flex-1 flex-col justify-center">
