@@ -1,0 +1,14 @@
+node_modules
+dist
+server/dist
+server/uploads
+server/*.db*
+server/.env
+.env
+*.local
+*.zip
+public/kayar-full-source.zip
+server/.env
+server/*.db*
+server/dist
+server/uploads
